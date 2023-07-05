@@ -1,6 +1,6 @@
 // CLAIRE Belmont
-#ifndef PRODUIT_H
-#define PRODUIT_H
+#ifndef PRODUIT_HPP
+#define PRODUIT_HPP
 #include <iostream>
 
 
