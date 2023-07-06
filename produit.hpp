@@ -3,7 +3,7 @@
 #define PRODUIT_HPP
 #include <iostream>
 
-
+// Creation de la structure Produit
 struct Produit
 {
     int idProduit;
@@ -11,11 +11,10 @@ struct Produit
     int idEntreprise;
     int quantite;
     int qualite;
-    Produit(){};
-    Produit(int _idProduit, float _prix, int _idEntreprise, int _quantite, int _qualite):
-        idProduit(_idProduit),prix(_prix),idEntreprise(_idEntreprise), quantite(_quantite),qualite(_qualite)
-    {
-    }
+    // Constructeur par defaut
+    Produit();
+    // constructeur
+    Produit(int _idProduit, float _prix, int _idEntreprise, int _quantite, int _qualite);
 };
 
 #endif

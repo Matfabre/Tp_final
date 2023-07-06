@@ -3,7 +3,7 @@
 #include "produit.hpp"
 #include "market.hpp"
 
-
+// constructeur de l'instance sous forme de singleton
 void Market::constructeurMarket()
 {
     if(nombreInstances == 0)
@@ -13,6 +13,7 @@ void Market::constructeurMarket()
     }
 }
 
+// methode pour avoir l'instance
 Market *Market::getInstance()
 {
     if(nombreInstances == 1)
@@ -22,6 +23,7 @@ Market *Market::getInstance()
     return NULL;
 }
 
+// methode pour ajouter un produit
 void Market::ajouterProduit(Produit *produit)
 {
     Produits.push_back(produit);
