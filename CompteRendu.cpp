@@ -1,4 +1,4 @@
-#include "compte_rendu.hpp"
+#include "CompteRendu.hpp"
 #include <iostream>
 
 void CompteRendu::afficheCR()
