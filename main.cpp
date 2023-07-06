@@ -4,6 +4,7 @@
 #include "Market.hpp"
 
 #include "Entreprise.hpp"
+#include "Automate.hpp"
 
 using namespace std;
 
@@ -19,18 +20,24 @@ void testentreprise()
 int main()
 {
 
-    struct Produit p1;
-    struct Produit p2;
-    struct Produit p3;
+//    struct Produit p1;
+//    struct Produit p2;
+//    struct Produit p3;
+//
+//    Market::constructeurMarket();
+//
+//    Market::getInstance()->ajouterProduit(&p1);
+//    Market::getInstance()->ajouterProduit(&p2);
+//    Market::getInstance()->ajouterProduit(&p3);
+//
+//    delete Market::getInstance();
+//
+//    testentreprise();
 
-    Market::constructeurMarket();
+    Automate* m=Automate::getInstance();
 
-    Market::getInstance()->ajouterProduit(&p1);
-    Market::getInstance()->ajouterProduit(&p2);
-    Market::getInstance()->ajouterProduit(&p3);
-
-    delete Market::getInstance();
-
-    testentreprise();
+    m->initialClient();
+    m->initialEntreprise();
+    delete m;
     return 0;
 }
