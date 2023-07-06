@@ -3,6 +3,7 @@
 #include "Client.hpp"
 #include "Market.hpp"
 #include "produit.hpp"
+#include "CompteRendu.hpp"
 
 class Automate
 {
@@ -15,10 +16,12 @@ protected:
 
 public:
     static Automate* getInstance();
-    void initialClient();
+    void initialClient(const int& N_PRODUITS_FINIS);
     void initialEntreprise();
     void addEntreprise(Entreprise& entreprise);
     void addClient(Client& client);
+    void gestionMemoire();
+    void play(int n_tours);
     std::vector<Entreprise*> getEntreprises();
     ~Automate();
 };

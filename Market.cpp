@@ -10,6 +10,7 @@ Market *Market::getInstance()
     if(nombreInstances == 0)
     {
         instance = new Market();
+        nombreInstances++;
     }
     return instance;
 }
