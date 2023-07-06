@@ -20,7 +20,8 @@ private:
 public:
     Entreprise(std::string _nomEntreprise,int _idEntreprise);
     virtual ~Entreprise();
-
+    int getIdEntreprise();
+    void recois(float montant);
     virtual void ajouterProduits( int id, float prix, float couts, float qualite);
 
 };

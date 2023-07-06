@@ -59,11 +59,11 @@ void Market::transaction(Produit* produit, int quantiteAchete)
     std::vector<Entreprise*> marchands = Automate::getInstance()->getEntreprises();
     for(Entreprise* marchand : marchands)
     {
-        /* TODO!!!!
-        if(marchand->idEntreprise == produit->idEntreprise)
+
+        if(marchand->getIdEntreprise() == produit->idEntreprise)
         {
-            marchand->paye(produit->prix * quantiteAchete);
-        }*/
+            marchand->recois(produit->prix * quantiteAchete);
+        }
     }
 }
 
