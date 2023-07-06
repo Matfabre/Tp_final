@@ -12,7 +12,7 @@ private:
     int produitRechercheId;
 
 public:
-    Client(float _salaire, float _argent);
+    Client(float _salaire, float _argent, int _produitRechercheId);
     void shop();
     ~Client();
 

@@ -16,7 +16,7 @@ protected:
 
 public:
     static Automate* getInstance();
-    void initialClient();
+    void initialClient(const int& N_PRODUITS_FINIS);
     void initialEntreprise();
     void addEntreprise(Entreprise& entreprise);
     void addClient(Client& client);

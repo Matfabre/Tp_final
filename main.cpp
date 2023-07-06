@@ -6,6 +6,9 @@
 #include "Automate.hpp"
 
 int N_TOURS = 100;
+int N_PRODUITS_FINIS = 3;
+int N_MATIERES_PREMIERES = 3;
+
 
 void testentreprise()
 {
@@ -42,12 +45,12 @@ int main()
 
     Automate* m = Automate::getInstance();
 
-    m->initialClient();
+    m->initialClient(N_PRODUITS_FINIS);
     m->initialEntreprise();
 
     m->play(N_TOURS);
 
-    m->manageMemory();
+    m->gestionMemoire();
 
     return 0;
 }
