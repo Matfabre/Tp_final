@@ -12,15 +12,15 @@ void testentreprise()
     Produit *ptrProduit = &p1;
 
     EntrepriseProduitFinis Ikea{"ikea", 2};
-    Ikea.ajouterProduits(3,3,3,3, ptrProduit);
-    Ikea.ajouterProduits(8,6,2,4, ptrProduit);
-    std::cout << "entrepriseOK" << std::endl;
+    Ikea.creerProduits(3,3,3,3, ptrProduit);
+    Ikea.creerProduits(8,6,2,4, ptrProduit);
+    Ikea.afficherEtat();
+    Ikea.vendreProduits(3, 20);
+    Ikea.afficherEtat();
 }
 
-
-int main()
+void testmarket()
 {
-
     struct Produit p1;
     struct Produit p2;
     struct Produit p3;
@@ -33,6 +33,10 @@ int main()
 
     delete Market::getInstance();
 
+}
+int main()
+{
+    testmarket();
     testentreprise();
     return 0;
 }

@@ -21,7 +21,7 @@ void Entreprise::recois(float montant)
 
 Entreprise::~Entreprise(){}
 
- void Entreprise::ajouterProduits( int id, float prix, float couts, float qualite, Produit *produit)
+ void Entreprise::creerProduits( int id, float prix, float couts, float qualite, Produit *produit)
 {
     idProduits.push_back(id);
     prixProduits.push_back(prix);
@@ -37,7 +37,7 @@ Entreprise::~Entreprise(){}
     produit->quantite ++;
 }
 
- void Entreprise::vendreProduits( int id, float prix, float couts, float qualite)
+ void Entreprise::vendreProduits(int id, float prixVente)
 {
     idProduits.erase(idProduits.begin()+id);
     prixProduits.erase(prixProduits.begin()+id);
@@ -46,16 +46,25 @@ Entreprise::~Entreprise(){}
 
     //Vente du produit
     reserveProduits.erase(reserveProduits.begin()+id);
+    recois(prixVente);
 }
-
+void Entreprise::afficherEtat()
+{
+    std::cout << "Entreprise: " << nomEntreprise << " id: " << idEntreprise <<std::endl;
+    std::cout << "Captial :" << capital << std::endl;
+}
 EntrepriseProduitFinis::EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise) : Entreprise(_nomEntreprise,_idEntreprise)
 {
 }
 EntrepriseProduitFinis::~EntrepriseProduitFinis(){}
 
-void EntrepriseProduitFinis::ajouterProduits( int id, float prix, float couts, float qualite,  Produit *produit)
+void EntrepriseProduitFinis::creerProduits( int id, float prix, float couts, float qualite,  Produit *produit)
 {
-    Entreprise::ajouterProduits(id, prix, couts, qualite, produit);
+    Entreprise::creerProduits(id, prix, couts, qualite, produit);
+}
+void EntrepriseProduitFinis::afficherEtat()
+{
+    Entreprise::afficherEtat();
 }
 
 EntrepriseMatierePremiere::EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise) : Entreprise(_nomEntreprise,_idEntreprise)
