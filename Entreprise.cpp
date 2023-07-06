@@ -9,6 +9,16 @@ Entreprise::Entreprise(std::string _nomEntreprise,int _idEntreprise)
 
 }
 
+int Entreprise::getIdEntreprise()
+{
+    return idEntreprise;
+}
+
+void Entreprise::recois(float montant)
+{
+    capital += montant;
+}
+
 Entreprise::~Entreprise(){}
 
  void Entreprise::ajouterProduits( int id, float prix, float couts, float qualite, Produit *produit)

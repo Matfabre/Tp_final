@@ -10,7 +10,7 @@ struct Produit
     float prix;
     int idEntreprise;
     int quantite;
-    int qualite;
+    float qualite;
     // Constructeur par defaut
     Produit();
     // constructeur

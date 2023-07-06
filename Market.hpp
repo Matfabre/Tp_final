@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "produit.hpp"
+#include "Entreprise.hpp"
 // creation de la classe Market qui contiendra les produits des entreprises
 class Market
 {
@@ -18,11 +19,20 @@ public :
     ~Market();
 
     //methode pour ajouter un produit
-    void ajouterProduit(Produit *produit);
+    void ajouterProduitFini(Produit *produit);
+    std::vector<Produit*> getProduitsFinis();
+    std::vector<Produit*> getMatieresPremieres();
+    void transaction(Produit* produit, int quantiteAchete);
+
+
+
+
 protected:
     static int nombreInstances;
     static Market *instance;
-    std::vector<Produit*> Produits;
+    std::vector<Produit*> produitsFinis;
+    std::vector<Produit*> matieresPremieres;
+
 
 private:
     Market();

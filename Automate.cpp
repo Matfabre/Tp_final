@@ -1,17 +1,18 @@
 #include "Automate.hpp"
+#include <vector>
 
 Automate::Automate()
 {
 }
 
-void Automate::addEntreprise(const Entreprise& entreprise)
+void Automate::addEntreprise(Entreprise& entreprise)
 {
-    entreprises.push_back(entreprise);
+    entreprises.push_back(&entreprise);
 }
 
-void Automate::addClient(const Client& client)
+void Automate::addClient(Client& client)
 {
-    clients.push_back(client);
+    clients.push_back(&client);
 }
 
 Automate* Automate::getInstance()
@@ -27,6 +28,10 @@ Automate* Automate::getInstance()
     return instance;
 }
 
+std::vector<Entreprise*> Automate::getEntreprises()
+{
+    return entreprises;
+}
 
 Automate::~Automate()
 {

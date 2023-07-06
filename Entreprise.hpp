@@ -1,3 +1,6 @@
+#ifndef ENTREPRISE_HPP
+#define ENTREPRISE_HPP
+
 // Mathias
 #include <vector>
 #include <string>
@@ -17,11 +20,17 @@ private:
 public:
     Entreprise(std::string _nomEntreprise,int _idEntreprise);
     virtual ~Entreprise();
-
+    int getIdEntreprise();
+    void recois(float montant);
     virtual void ajouterProduits( int id, float prix, float couts, float qualite, Produit *produit);
     void vendreProduits( int id, float prix, float couts, float qualite);
 
 };
+#endif
+
+
+#ifndef ENTREPRISEPRODUITFINIS_HPP
+#define ENTREPRISEPRODUITFINIS_HPP
 
 class EntrepriseProduitFinis : public Entreprise
 {
@@ -42,3 +51,4 @@ public:
     ~EntrepriseMatierePremiere();
 
 };
+#endif

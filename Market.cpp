@@ -2,6 +2,7 @@
 #include <iostream>
 #include "produit.hpp"
 #include "market.hpp"
+#include "Automate.hpp"
 
 // constructeur de l'instance sous forme de singleton
 void Market::constructeurMarket()
@@ -24,9 +25,9 @@ Market *Market::getInstance()
 }
 
 // methode pour ajouter un produit
-void Market::ajouterProduit(Produit *produit)
+void Market::ajouterProduitFini(Produit* produit)
 {
-    Produits.push_back(produit);
+    produitsFinis.push_back(produit);
 }
 
 // Destucteur de Market
@@ -42,5 +43,33 @@ Market::Market()
     std::cout << "constructeur de Market" << std::endl;
 }
 
+std::vector<Produit*> Market::getProduitsFinis()
+{
+    return produitsFinis;
+}
+
+std::vector<Produit*> Market::getMatieresPremieres()
+{
+    return matieresPremieres;
+}
+
+void Market::transaction(Produit* produit, int quantiteAchete)
+{
+    (produit->quantite) -= quantiteAchete;
+    std::vector<Entreprise*> marchands = Automate::getInstance()->getEntreprises();
+    for(Entreprise* marchand : marchands)
+    {
+
+        if(marchand->getIdEntreprise() == produit->idEntreprise)
+        {
+            marchand->recois(produit->prix * quantiteAchete);
+        }
+    }
+}
+
 int Market::nombreInstances = 0;
+
+
+
+
 Market *Market::instance = NULL;

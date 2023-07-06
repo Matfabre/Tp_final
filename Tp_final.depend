@@ -19,36 +19,42 @@
 1688628744 c:\code\projets\tp_final\produit.hpp
 	<iostream>
 
-1688628090 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\entreprise.cpp
+1688638927 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\entreprise.cpp
 	"Entreprise.hpp"
 
-1688628090 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\entreprise.hpp
+1688638981 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\entreprise.hpp
 	<vector>
 	<string>
 
-1688563830 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.cpp
-	"client.hpp"
+1688637750 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.cpp
+	"Market.hpp"
+	"produit.hpp"
 	<iostream>
+	<vector>
 
-1688564033 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.hpp
+1688637520 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.hpp
+	"Client.hpp"
+	"produit.hpp"
 
-1688628584 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\main.cpp
+1688636843 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\main.cpp
 	<iostream>
 	"produit.hpp"
 	"market.hpp"
 	"Entreprise.hpp"
 
-1688628584 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\produit.hpp
+1688633982 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\produit.hpp
 	<iostream>
 
-1688628584 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.hpp
+1688637441 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.hpp
 	<iostream>
 	<vector>
+	"Entreprise.hpp"
 
-1688628584 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.cpp
+1688637833 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.cpp
 	<iostream>
 	"produit.hpp"
 	"market.hpp"
+	"Automate.hpp"
 
 1688628584 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\produit.cpp
 	"produit.hpp"
@@ -97,6 +103,7 @@
 
 1688631542 source:c:\code\projets\tp_final\automate.cpp
 	"Automate.hpp"
+	<vector>
 
 1688631542 c:\code\projets\tp_final\automate.hpp
 	<vector>

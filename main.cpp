@@ -27,9 +27,9 @@ int main()
 
     Market::constructeurMarket();
 
-    Market::getInstance()->ajouterProduit(&p1);
-    Market::getInstance()->ajouterProduit(&p2);
-    Market::getInstance()->ajouterProduit(&p3);
+    Market::getInstance()->ajouterProduitFini(&p1);
+    Market::getInstance()->ajouterProduitFini(&p2);
+    Market::getInstance()->ajouterProduitFini(&p3);
 
     delete Market::getInstance();
 
