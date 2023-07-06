@@ -1,32 +1,23 @@
 //CLAIRE Belmont
 #include <iostream>
 #include "produit.hpp"
-#include "market.hpp"
-
-// constructeur de l'instance sous forme de singleton
-void Market::constructeurMarket()
-{
-    if(nombreInstances == 0)
-    {
-        nombreInstances ++;
-        instance = new Market();
-    }
-}
+#include "Market.hpp"
+#include "Automate.hpp"
 
 // methode pour avoir l'instance
 Market *Market::getInstance()
 {
-    if(nombreInstances == 1)
+    if(nombreInstances == 0)
     {
-        return instance;
+        instance = new Market();
     }
-    return NULL;
+    return instance;
 }
 
 // methode pour ajouter un produit
-void Market::ajouterProduit(Produit *produit)
+void Market::ajouterProduitFini(Produit* produit)
 {
-    Produits.push_back(produit);
+    produitsFinis.push_back(produit);
 }
 
 // Destucteur de Market
@@ -42,5 +33,33 @@ Market::Market()
     std::cout << "constructeur de Market" << std::endl;
 }
 
+std::vector<Produit*> Market::getProduitsFinis()
+{
+    return produitsFinis;
+}
+
+std::vector<Produit*> Market::getMatieresPremieres()
+{
+    return matieresPremieres;
+}
+
+void Market::transaction(Produit* produit, int quantiteAchete)
+{
+    (produit->quantite) -= quantiteAchete;
+    std::vector<Entreprise*> marchands = Automate::getInstance()->getEntreprises();
+    for(Entreprise* marchand : marchands)
+    {
+
+        if(marchand->getIdEntreprise() == produit->idEntreprise)
+        {
+            marchand->recois(produit->prix * quantiteAchete);
+        }
+    }
+}
+
 int Market::nombreInstances = 0;
+
+
+
+
 Market *Market::instance = NULL;

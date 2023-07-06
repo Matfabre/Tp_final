@@ -2,7 +2,6 @@
 
 #include "produit.hpp"
 #include "Market.hpp"
-
 #include "Entreprise.hpp"
 #include "Automate.hpp"
 
@@ -10,34 +9,37 @@ using namespace std;
 
 void testentreprise()
 {
+    Produit p1;
+    Produit *ptrProduit = &p1;
+
     EntrepriseProduitFinis Ikea{"ikea", 2};
-    Ikea.ajouterProduits(3,3,3,3);
-    Ikea.ajouterProduits(8,6,2,4);
-    cout << "entrepriseOK" << endl;
+    Ikea.creerProduits(3,3,3,3, ptrProduit);
+    Ikea.creerProduits(8,6,2,4, ptrProduit);
+    Ikea.afficherEtat();
+    Ikea.vendreProduits(1, 20);
+    Ikea.afficherEtat();
 }
 
-
-int main()
+void testmarket()
 {
 
-//    struct Produit p1;
-//    struct Produit p2;
-//    struct Produit p3;
-//
-//    Market::constructeurMarket();
-//
-//    Market::getInstance()->ajouterProduit(&p1);
-//    Market::getInstance()->ajouterProduit(&p2);
-//    Market::getInstance()->ajouterProduit(&p3);
-//
-//    delete Market::getInstance();
-//
-//    testentreprise();
+    Produit p1;
+    Produit p2;
+    Produit p3;
+
+    Market::getInstance()->ajouterProduitFini(&p1);
+    Market::getInstance()->ajouterProduitFini(&p2);
+    Market::getInstance()->ajouterProduitFini(&p3);
+
+}
+int main()
+{
+    testmarket();
+    testentreprise();
 
     Automate* m=Automate::getInstance();
 
     m->initialClient();
     m->initialEntreprise();
-    delete m;
     return 0;
 }

@@ -1,18 +1,19 @@
 #include "Automate.hpp"
 #include <Time.h>
+#include <vector>
 
 Automate::Automate()
 {
 }
 
-void Automate::addEntreprise(const Entreprise& entreprise)
+void Automate::addEntreprise(Entreprise& entreprise)
 {
-    entreprises.push_back(entreprise);
+    entreprises.push_back(&entreprise);
 }
 
-void Automate::addClient(const Client& client)
+void Automate::addClient(Client& client)
 {
-    clients.push_back(client);
+    clients.push_back(&client);
 }
 
 Automate* Automate::getInstance()
@@ -59,6 +60,10 @@ void Automate::initialEntreprise()
     instance->addEntreprise(MonJardin);
 }
 
+std::vector<Entreprise*> Automate::getEntreprises()
+{
+    return entreprises;
+}
 
 Automate::~Automate()
 {
