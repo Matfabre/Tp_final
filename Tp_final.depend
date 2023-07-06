@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1688568259 source:c:\users\adeli\desktop\tp_final\main.cpp
+	<iostream>
+	"produit.hpp"
+	"market.hpp"
+
+1688626318 c:\users\adeli\desktop\tp_final\produit.hpp
+	<iostream>
+
+1688626284 c:\users\adeli\desktop\tp_final\market.hpp
+	<iostream>
+	<vector>
+
+1688566137 source:c:\users\adeli\desktop\tp_final\produit.cpp
+	"produit.hpp"
+
+1688624866 source:c:\users\adeli\desktop\tp_final\market.cpp
+	<iostream>
+	"produit.hpp"
+	"market.hpp"
+
