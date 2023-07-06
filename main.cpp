@@ -2,10 +2,19 @@
 
 #include "produit.hpp"
 #include "Market.hpp"
-
 #include "Entreprise.hpp"
 
 using namespace std;
+
+void testentreprise()
+{
+    Produit p1;
+    EntrepriseProduitFinis Ikea{"ikea", 2};
+    Ikea.ajouterProduits(3,3,3,3, p1);
+    Ikea.ajouterProduits(8,6,2,4, p1);
+    std::cout << "entrepriseOK" << std::endl;
+}
+
 
 int main()
 {

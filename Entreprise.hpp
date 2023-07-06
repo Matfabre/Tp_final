@@ -1,7 +1,7 @@
 // Mathias
 #include <vector>
 #include <string>
-
+#include "produit.hpp"
 class Entreprise
 {
 private:
@@ -32,11 +32,3 @@ public:
     virtual void ajouterProduits( int id, float prix, float couts, float qualite, Produit produit);
 
 };
-
-void testentreprise()
-{
-    EntrepriseProduitFinis Ikea{"ikea", 2};
-    Ikea.ajouterProduits(3,3,3,3);
-    Ikea.ajouterProduits(8,6,2,4);
-    cout << "entrepriseOK" << endl;
-}
