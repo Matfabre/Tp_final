@@ -47,11 +47,11 @@ void Automate::initialClient()
 
 void Automate::initialEntreprise()
 {
-    EntrepriseProduitFinis SuperMeuble("SuperMeuble",1);
-    EntrepriseProduitFinis MeubleHyper("MeubleHyper",2);
-    EntrepriseProduitFinis DecoMaison("DecoMaison",3);
-    EntrepriseProduitFinis CuisineOutil("CuisineOutil",4);
-    EntrepriseProduitFinis MonJardin("MonJardin",5);
+    EntrepriseProduitFinis SuperMeuble("SuperMeuble",1, 10000);
+    EntrepriseProduitFinis MeubleHyper("MeubleHyper",2, 10000);
+    EntrepriseProduitFinis DecoMaison("DecoMaison",3, 10000);
+    EntrepriseProduitFinis CuisineOutil("CuisineOutil",4, 10000);
+    EntrepriseProduitFinis MonJardin("MonJardin",5, 10000);
 
     instance->addEntreprise(SuperMeuble);
     instance->addEntreprise(MeubleHyper);

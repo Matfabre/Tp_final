@@ -12,9 +12,12 @@ void testentreprise()
     Produit p1;
     Produit *ptrProduit = &p1;
 
-    EntrepriseProduitFinis Ikea{"ikea", 2};
+    EntrepriseProduitFinis Ikea{"ikea", 2, 2000};
     Ikea.creerProduits(3,3,3,3, ptrProduit);
     Ikea.creerProduits(8,6,2,4, ptrProduit);
+
+    Market::getInstance()->ajouterProduitFini(&p1);
+    Ikea.acheterProduits(0);
     Ikea.afficherEtat();
     Ikea.vendreProduits(1, 20);
     Ikea.afficherEtat();
