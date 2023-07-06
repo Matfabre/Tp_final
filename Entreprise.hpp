@@ -2,6 +2,7 @@
 #define ENTREPRISE_HPP
 
 // Mathias
+#pragma once
 #include <vector>
 #include <string>
 #include "produit.hpp"

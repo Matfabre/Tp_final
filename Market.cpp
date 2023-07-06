@@ -4,24 +4,14 @@
 #include "Market.hpp"
 #include "Automate.hpp"
 
-// constructeur de l'instance sous forme de singleton
-void Market::constructeurMarket()
-{
-    if(nombreInstances == 0)
-    {
-        nombreInstances ++;
-        instance = new Market();
-    }
-}
-
 // methode pour avoir l'instance
 Market *Market::getInstance()
 {
-    if(nombreInstances == 1)
+    if(nombreInstances == 0)
     {
-        return instance;
+        instance = new Market();
     }
-    return NULL;
+    return instance;
 }
 
 // methode pour ajouter un produit

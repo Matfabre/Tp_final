@@ -9,9 +9,6 @@
 class Market
 {
 public :
-    // Constructeur sous forme de singleton
-    static void constructeurMarket();
-
     // methode pour avoir l'instance
     static Market *getInstance();
 
