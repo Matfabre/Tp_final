@@ -8,9 +8,9 @@ class Automate
 private:
     std::vector<Entreprise> entreprises;
     std::vector<Client> clients;
-    Market market;
-    static Automate* instance;
     Automate();
+protected:
+    static Automate* instance;
 
 public:
     static Automate* getInstance();
