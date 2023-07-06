@@ -33,8 +33,8 @@ void Automate::initialClient()
 {
     srand((unsigned) time(NULL));
 
-    // Creation de 20 clients
-    for(int i = 0; i<20; i++)
+    // Creation de 100 clients
+    for(int i = 0; i<100; i++)
     {
         // salaire est un nombre au hasard entre 0 et 3000
         float salaire = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/3000));
@@ -63,6 +63,36 @@ void Automate::initialEntreprise()
 std::vector<Entreprise*> Automate::getEntreprises()
 {
     return entreprises;
+}
+
+void Automate::play(int n_tours)
+{
+    for(int i = 0, i < n_tours, i++)
+    {
+        for(Entreprise* entreprise : entreprises)
+        {
+            entreprise->creerProduits();
+        }
+        for(Entreprise* entreprise : entreprises)
+        {
+            entreprise->shop();
+        }
+        for(Entreprise* entreprise : entreprises)
+        {
+            entreprise->vendreProduits();
+        }
+        for(Client* client : clients)
+        {
+            client->shop();
+        }
+        CompteRendu.afficheCR(entreprises, i);
+    }
+
+}
+
+void Automate::gestionMemoire()
+{
+
 }
 
 Automate::~Automate()

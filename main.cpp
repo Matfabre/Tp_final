@@ -5,7 +5,7 @@
 #include "Entreprise.hpp"
 #include "Automate.hpp"
 
-using namespace std;
+int N_TOURS = 100;
 
 void testentreprise()
 {
@@ -32,14 +32,22 @@ void testmarket()
     Market::getInstance()->ajouterProduitFini(&p3);
 
 }
+
+
+
 int main()
 {
     testmarket();
     testentreprise();
 
-    Automate* m=Automate::getInstance();
+    Automate* m = Automate::getInstance();
 
     m->initialClient();
     m->initialEntreprise();
+
+    m->play(N_TOURS);
+
+    m->manageMemory();
+
     return 0;
 }
