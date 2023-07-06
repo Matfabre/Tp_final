@@ -1,7 +1,7 @@
 //CLAIRE Belmont
 #include <iostream>
 #include "produit.hpp"
-#include "market.hpp"
+#include "Market.hpp"
 #include "Automate.hpp"
 
 // constructeur de l'instance sous forme de singleton

@@ -4,7 +4,7 @@
 // Mathias
 #include <vector>
 #include <string>
-
+#include "produit.hpp"
 class Entreprise
 {
 private:
@@ -15,14 +15,15 @@ private:
     std::vector<float> prixProduits;
     std::vector<float> coutsProduits;
     std::vector<float> qualiteProduits;
-    std::vector<float> reserveProduits;
+    std::vector<Produit> reserveProduits;
 
 public:
     Entreprise(std::string _nomEntreprise,int _idEntreprise);
     virtual ~Entreprise();
     int getIdEntreprise();
     void recois(float montant);
-    virtual void ajouterProduits( int id, float prix, float couts, float qualite);
+    virtual void ajouterProduits( int id, float prix, float couts, float qualite, Produit *produit);
+    void vendreProduits( int id, float prix, float couts, float qualite);
 
 };
 #endif
@@ -38,7 +39,16 @@ public:
     EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise);
     ~EntrepriseProduitFinis();
 
-    virtual void ajouterProduits( int id, float prix, float couts, float qualite);
+    virtual void ajouterProduits( int id, float prix, float couts, float qualite, Produit *produit);
+
+};
+
+class EntrepriseMatierePremiere : public Entreprise
+{
+private:
+public:
+    EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise);
+    ~EntrepriseMatierePremiere();
 
 };
 #endif
