@@ -9,9 +9,11 @@ using namespace std;
 void testentreprise()
 {
     Produit p1;
+    Produit *ptrProduit = &p1;
+
     EntrepriseProduitFinis Ikea{"ikea", 2};
-    Ikea.ajouterProduits(3,3,3,3, p1);
-    Ikea.ajouterProduits(8,6,2,4, p1);
+    Ikea.ajouterProduits(3,3,3,3, ptrProduit);
+    Ikea.ajouterProduits(8,6,2,4, ptrProduit);
     std::cout << "entrepriseOK" << std::endl;
 }
 

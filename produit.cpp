@@ -10,7 +10,7 @@ Produit::Produit()
 }
 
 // Constructeur
-Produit::Produit(int _idProduit, float _prix, int _idEntreprise, int _quantite, int _qualite):
+Produit::Produit(int _idProduit, float _prix, int _idEntreprise, int _quantite, float _qualite):
         idProduit(_idProduit),prix(_prix),idEntreprise(_idEntreprise), quantite(_quantite),qualite(_qualite)
 {
 
