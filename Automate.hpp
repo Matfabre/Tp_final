@@ -2,6 +2,7 @@
 #include "Entreprise.hpp"
 #include "Client.hpp"
 #include "Market.hpp"
+#include "produit.hpp"
 
 class Automate
 {
@@ -16,6 +17,8 @@ public:
     static Automate* getInstance();
     void addEntreprise(const Entreprise& entreprise);
     void addClient(const Client& client);
+    void initialClient();
+    void initialEntreprise();
     ~Automate();
 };
 
