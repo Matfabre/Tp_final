@@ -1,3 +1,6 @@
+#ifndef ENTREPRISE_HPP
+#define ENTREPRISE_HPP
+
 // Mathias
 #include <vector>
 #include <string>
@@ -21,6 +24,11 @@ public:
     virtual void ajouterProduits( int id, float prix, float couts, float qualite);
 
 };
+#endif
+
+
+#ifndef ENTREPRISEPRODUITFINIS_HPP
+#define ENTREPRISEPRODUITFINIS_HPP
 
 class EntrepriseProduitFinis : public Entreprise
 {
@@ -32,3 +40,4 @@ public:
     virtual void ajouterProduits( int id, float prix, float couts, float qualite);
 
 };
+#endif
