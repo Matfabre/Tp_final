@@ -32,9 +32,21 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Automate.cpp" />
+		<Unit filename="Automate.hpp" />
+		<Unit filename="Client.cpp" />
+		<Unit filename="Client.hpp" />
+		<Unit filename="CompteRendu.cpp" />
+		<Unit filename="CompteRendu.hpp" />
 		<Unit filename="Entreprise.cpp" />
 		<Unit filename="Entreprise.hpp" />
+		<Unit filename="ListeProduit.cpp" />
+		<Unit filename="ListeProduit.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="market.cpp" />
+		<Unit filename="market.hpp" />
+		<Unit filename="produit.cpp" />
+		<Unit filename="produit.hpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

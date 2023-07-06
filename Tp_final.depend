@@ -1,19 +1,21 @@
 # depslib dependency file v1.0
-1688567988 source:c:\code\projets\tp_final\entreprise.cpp
+1688629855 source:c:\code\projets\tp_final\entreprise.cpp
 	"Entreprise.hpp"
 
-1688565940 source:c:\code\projets\tp_final\main.cpp
+1688630219 source:c:\code\projets\tp_final\main.cpp
 	<iostream>
+	"produit.hpp"
+	"Market.hpp"
 	"Entreprise.hpp"
 
-1688567938 c:\code\projets\tp_final\entreprise.hpp
+1688629855 c:\code\projets\tp_final\entreprise.hpp
 	<vector>
 	<string>
 
-1688568276 source:c:\code\projets\tp_final\produit.cpp
+1688628744 source:c:\code\projets\tp_final\produit.cpp
 	"produit.hpp"
 
-1688568276 c:\code\projets\tp_final\produit.hpp
+1688628744 c:\code\projets\tp_final\produit.hpp
 	<iostream>
 
 1688628090 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\entreprise.cpp
@@ -62,4 +64,32 @@
 1688628874 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\listeproduit.hpp
 	<string>
 	<unordered_map>
+
+1688627829 source:c:\code\projets\tp_final\listeproduit.cpp
+	"ListeProduit.hpp"
+
+1688630219 c:\code\projets\tp_final\listeproduit.hpp
+	<string>
+	<unordered_map>
+
+1688630219 c:\code\projets\tp_final\market.hpp
+	<iostream>
+	<vector>
+
+1688630219 source:c:\code\projets\tp_final\client.cpp
+	"Client.hpp"
+	<iostream>
+
+1688627829 c:\code\projets\tp_final\client.hpp
+
+1688630219 source:c:\code\projets\tp_final\compterendu.cpp
+	"CompteRendu.hpp"
+	<iostream>
+
+1688627829 c:\code\projets\tp_final\compterendu.hpp
+
+1688630219 source:c:\code\projets\tp_final\market.cpp
+	<iostream>
+	"produit.hpp"
+	"market.hpp"
 
