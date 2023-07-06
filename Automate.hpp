@@ -1,7 +1,7 @@
 #include <vector>
-#include "entreprise.hpp"
-#include "client.hpp"
-#include "market.hpp"
+#include "Entreprise.hpp"
+#include "Client.hpp"
+#include "Market.hpp"
 
 class Automate
 {

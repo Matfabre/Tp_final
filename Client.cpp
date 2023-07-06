@@ -1,4 +1,4 @@
-#include "client.hpp"
+#include "Client.hpp"
 #include <iostream>
 
 Client::Client(float _salaire, float _argent)
