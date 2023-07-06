@@ -14,7 +14,7 @@ void Automate::addClient(const Client& client)
     clients.push_back(client);
 }
 
-static Automate* Automate::getInstance()
+Automate* Automate::getInstance()
 {
     if(instance == NULL)
     {
@@ -28,8 +28,9 @@ static Automate* Automate::getInstance()
 }
 
 
-
 Automate::~Automate()
 {
 
 }
+
+Automate* Automate::instance = NULL;

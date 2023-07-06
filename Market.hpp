@@ -3,7 +3,7 @@
 #define MARKET_HPP
 #include <iostream>
 #include <vector>
-
+#include "produit.hpp"
 // creation de la classe Market qui contiendra les produits des entreprises
 class Market
 {

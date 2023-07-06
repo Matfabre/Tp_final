@@ -23,26 +23,27 @@
 	<vector>
 	<string>
 
-1688563830 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.cpp
-	"client.hpp"
+1688628948 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.cpp
+	"Client.hpp"
 	<iostream>
 
 1688564033 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\client.hpp
 
-1688628584 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\main.cpp
+1688628979 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\main.cpp
 	<iostream>
 	"produit.hpp"
-	"market.hpp"
+	"Market.hpp"
 	"Entreprise.hpp"
 
 1688628584 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\produit.hpp
 	<iostream>
 
-1688628584 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.hpp
+1688630188 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.hpp
 	<iostream>
 	<vector>
+	"produit.hpp"
 
-1688628584 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.cpp
+1688630875 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\market.cpp
 	<iostream>
 	"produit.hpp"
 	"market.hpp"
@@ -62,4 +63,13 @@
 1688628874 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\listeproduit.hpp
 	<string>
 	<unordered_map>
+
+1688631253 source:c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\automate.cpp
+	"Automate.hpp"
+
+1688631283 c:\users\pierreantoine\onedrive\documents\formation\c\tp_final\automate.hpp
+	<vector>
+	"Entreprise.hpp"
+	"Client.hpp"
+	"Market.hpp"
 
