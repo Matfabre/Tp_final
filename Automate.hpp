@@ -2,6 +2,7 @@
 #include "Entreprise.hpp"
 #include "Client.hpp"
 #include "Market.hpp"
+#include "produit.hpp"
 
 class Automate
 {
@@ -14,6 +15,8 @@ protected:
 
 public:
     static Automate* getInstance();
+    void initialClient();
+    void initialEntreprise();
     void addEntreprise(Entreprise& entreprise);
     void addClient(Client& client);
     std::vector<Entreprise*> getEntreprises();

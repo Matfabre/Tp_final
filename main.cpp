@@ -3,6 +3,7 @@
 #include "produit.hpp"
 #include "Market.hpp"
 #include "Entreprise.hpp"
+#include "Automate.hpp"
 
 using namespace std;
 
@@ -15,28 +16,30 @@ void testentreprise()
     Ikea.creerProduits(3,3,3,3, ptrProduit);
     Ikea.creerProduits(8,6,2,4, ptrProduit);
     Ikea.afficherEtat();
-    Ikea.vendreProduits(2, 20);
+    Ikea.vendreProduits(1, 20);
     Ikea.afficherEtat();
 }
 
 void testmarket()
 {
-    struct Produit p1;
-    struct Produit p2;
-    struct Produit p3;
 
-    Market::constructeurMarket();
+    Produit p1;
+    Produit p2;
+    Produit p3;
 
     Market::getInstance()->ajouterProduitFini(&p1);
     Market::getInstance()->ajouterProduitFini(&p2);
     Market::getInstance()->ajouterProduitFini(&p3);
-
-    delete Market::getInstance();
 
 }
 int main()
 {
     testmarket();
     testentreprise();
+
+    Automate* m=Automate::getInstance();
+
+    m->initialClient();
+    m->initialEntreprise();
     return 0;
 }
