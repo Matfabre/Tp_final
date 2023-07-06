@@ -29,6 +29,14 @@ public:
     EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise);
     ~EntrepriseProduitFinis();
 
-    virtual void ajouterProduits( int id, float prix, float couts, float qualite);
+    virtual void ajouterProduits( int id, float prix, float couts, float qualite, Produit produit);
 
 };
+
+void testentreprise()
+{
+    EntrepriseProduitFinis Ikea{"ikea", 2};
+    Ikea.ajouterProduits(3,3,3,3);
+    Ikea.ajouterProduits(8,6,2,4);
+    cout << "entrepriseOK" << endl;
+}

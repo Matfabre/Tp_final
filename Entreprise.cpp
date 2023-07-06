@@ -24,7 +24,7 @@ EntrepriseProduitFinis::EntrepriseProduitFinis(std::string _nomEntreprise,int _i
 }
 EntrepriseProduitFinis::~EntrepriseProduitFinis(){}
 
-void EntrepriseProduitFinis::ajouterProduits( int id, float prix, float couts, float qualite)
+void EntrepriseProduitFinis::ajouterProduits( int id, float prix, float couts, float qualite,  Produit produit)
 {
     Entreprise::ajouterProduits(id, prix, couts, qualite);
 }
