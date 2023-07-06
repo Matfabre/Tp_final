@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename=".gitignore" />
 		<Unit filename="Automate.cpp" />
 		<Unit filename="Automate.hpp" />
 		<Unit filename="Client.cpp" />
@@ -42,9 +43,12 @@
 		<Unit filename="Entreprise.hpp" />
 		<Unit filename="ListeProduit.cpp" />
 		<Unit filename="ListeProduit.hpp" />
+		<Unit filename="Market.cpp" />
+		<Unit filename="Market.hpp" />
+		<Unit filename="Tp_final.cbp" />
+		<Unit filename="Tp_final.depend" />
+		<Unit filename="Tp_final.layout" />
 		<Unit filename="main.cpp" />
-		<Unit filename="market.cpp" />
-		<Unit filename="market.hpp" />
 		<Unit filename="produit.cpp" />
 		<Unit filename="produit.hpp" />
 		<Extensions>
