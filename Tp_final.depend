@@ -1,21 +1,18 @@
 # depslib dependency file v1.0
-1688568259 source:c:\users\adeli\desktop\tp_final\main.cpp
-	<iostream>
-	"produit.hpp"
-	"market.hpp"
+1688567988 source:c:\code\projets\tp_final\entreprise.cpp
+	"Entreprise.hpp"
 
-1688626318 c:\users\adeli\desktop\tp_final\produit.hpp
+1688565940 source:c:\code\projets\tp_final\main.cpp
 	<iostream>
+	"Entreprise.hpp"
 
-1688626284 c:\users\adeli\desktop\tp_final\market.hpp
-	<iostream>
+1688567938 c:\code\projets\tp_final\entreprise.hpp
 	<vector>
+	<string>
 
-1688566137 source:c:\users\adeli\desktop\tp_final\produit.cpp
+1688568276 source:c:\code\projets\tp_final\produit.cpp
 	"produit.hpp"
 
-1688624866 source:c:\users\adeli\desktop\tp_final\market.cpp
+1688568276 c:\code\projets\tp_final\produit.hpp
 	<iostream>
-	"produit.hpp"
-	"market.hpp"
 
