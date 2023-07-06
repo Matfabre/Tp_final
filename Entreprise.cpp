@@ -39,19 +39,33 @@ Entreprise::~Entreprise(){}
 
  void Entreprise::vendreProduits(int id, float prixVente)
 {
-    idProduits.erase(idProduits.begin()+id);
-    prixProduits.erase(prixProduits.begin()+id);
-    coutsProduits.erase(coutsProduits.begin()+id);
-    qualiteProduits.erase(qualiteProduits.begin()+id);
+    if(id >= idProduits.size())
+    {
+        std::cout << "L'element a supprimer n'existe pas" << std::endl;
+    }
+    else
+    {
+        idProduits.erase(idProduits.begin()+id);
+        prixProduits.erase(prixProduits.begin()+id);
+        coutsProduits.erase(coutsProduits.begin()+id);
+        qualiteProduits.erase(qualiteProduits.begin()+id);
 
-    //Vente du produit
-    reserveProduits.erase(reserveProduits.begin()+id);
-    recois(prixVente);
+        //Vente du produit
+        reserveProduits.erase(reserveProduits.begin()+id);
+        recois(prixVente);
+    }
 }
 void Entreprise::afficherEtat()
 {
-    std::cout << "Entreprise: " << nomEntreprise << " id: " << idEntreprise <<std::endl;
-    std::cout << "Captial :" << capital << std::endl;
+    std::cout << "Entreprise: " << nomEntreprise << " id: " << idEntreprise;
+    std::cout << " Capital : " << capital << std::endl;
+    for (int i =0 ; i<idProduits.size() ; i++)
+    {
+        std::cout << "idProduits : " << idProduits.at(i);
+        std::cout << " cout produit : " << coutsProduits.at(i);
+        std::cout << " qualite produit : " << qualiteProduits.at(i) << std::endl;
+    }
+
 }
 EntrepriseProduitFinis::EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise) : Entreprise(_nomEntreprise,_idEntreprise)
 {

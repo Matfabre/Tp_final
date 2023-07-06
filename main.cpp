@@ -15,7 +15,7 @@ void testentreprise()
     Ikea.creerProduits(3,3,3,3, ptrProduit);
     Ikea.creerProduits(8,6,2,4, ptrProduit);
     Ikea.afficherEtat();
-    Ikea.vendreProduits(3, 20);
+    Ikea.vendreProduits(2, 20);
     Ikea.afficherEtat();
 }
 
