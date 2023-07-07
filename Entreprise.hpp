@@ -55,7 +55,8 @@ private:
 public:
     EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise, float _capital);
     ~EntrepriseMatierePremiere();
-    virtual void creerProduits();
+    void creerProduits();
+    void insertionNouveauProduit(int _id, float _prix, float _qualite,  float _couts, int _quantiteProduite);
 
 };
 #endif

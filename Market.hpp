@@ -17,6 +17,8 @@ public :
 
     //methode pour ajouter un produit
     void ajouterProduitFini(Produit *produit);
+    void ajouterMatierePremiere(Produit *produit);
+
     std::vector<Produit*> getProduitsFinis();
     std::vector<Produit*> getMatieresPremieres();
     void transaction(Produit* produit, int quantiteAchete);

@@ -5,16 +5,22 @@
 #include "Entreprise.hpp"
 #include "Automate.hpp"
 
-using namespace std;
+int N_TOURS = 100;
+int N_PRODUITS_FINIS = 3;
+int N_MATIERES_PREMIERES = 3;
+
 
 void testentreprise()
 {
     Produit p1;
     Produit *ptrProduit = &p1;
 
-    EntrepriseProduitFinis Ikea{"ikea", 2};
+    EntrepriseProduitFinis Ikea{"ikea", 2, 2000};
     Ikea.creerProduits(3,3,3,3, ptrProduit);
     Ikea.creerProduits(8,6,2,4, ptrProduit);
+
+    Market::getInstance()->ajouterProduitFini(&p1);
+    Ikea.acheterProduits(1);
     Ikea.afficherEtat();
     Ikea.vendreProduits(1, 20);
     Ikea.afficherEtat();
@@ -32,14 +38,26 @@ void testmarket()
     Market::getInstance()->ajouterProduitFini(&p3);
 
 }
+
+
+
 int main()
 {
-    testmarket();
-    testentreprise();
+    //testmarket();
+    //testentreprise();
 
-    Automate* m=Automate::getInstance();
+    Automate* m = Automate::getInstance();
 
-    m->initialClient();
+    m->initialClient(N_PRODUITS_FINIS);
     m->initialEntreprise();
+    m->initialProduit();
+
+    //m->play(N_TOURS);
+
+    //m->gestionMemoire();
+
+    CompteRendu compteRendu;
+    compteRendu.afficheCR(m);
+
     return 0;
 }

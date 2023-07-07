@@ -21,17 +21,36 @@ void Market::ajouterProduitFini(Produit* produit)
     produitsFinis.push_back(produit);
 }
 
+void Market::ajouterMatierePremiere(Produit* produit)
+{
+    for(int i = 0; i < matieresPremieres.size(); i++)
+    {
+        if(produit->idProduit == matieresPremieres[i]->idProduit && produit->idEntreprise == matieresPremieres[i]->idEntreprise)
+        {
+            matieresPremieres[i]->quantite += produit->quantite;
+            return;
+        }
+    }
+    matieresPremieres.push_back(produit);
+}
+
+
 // Destucteur de Market
 Market::~Market()
 {
-    nombreInstances --;
-    std::cout << "destructeur de Market" << std::endl;
+    for (Produit* produit : produitsFinis) {
+        delete produit;
+    }
+    for (Produit* produit : matieresPremieres) {
+        delete produit;
+    }
+
+    delete(instance);
 }
 
 // Constructeur de Market
 Market::Market()
 {
-    std::cout << "constructeur de Market" << std::endl;
 }
 
 std::vector<Produit*> Market::getProduitsFinis()
@@ -47,7 +66,8 @@ std::vector<Produit*> Market::getMatieresPremieres()
 void Market::transaction(Produit* produit, int quantiteAchete)
 {
     (produit->quantite) -= quantiteAchete;
-    std::vector<EntrepriseProduitFinis*> marchandsProduitsFinis =*( Automate::getInstance()->getEntreprisesProduitFinis());
+
+    std::vector<EntrepriseProduitFinis*> marchandsProduitsFinis = Automate::getInstance()->getEntreprisesProduitFinis();
     std::vector<EntrepriseMatierePremiere*> marchandsMatierePremiere = Automate::getInstance()->getEntreprisesMatierePremiere();
 
     for(Entreprise* marchand : marchandsProduitsFinis)

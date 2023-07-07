@@ -63,11 +63,46 @@ void Automate::initialEntreprise()
     instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("DecoMaison",3, 10000));
     instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("CuisineOutil",4, 10000));
     instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("MonJardin",5, 10000));
+
+    EntrepriseMatierePremiere gigabois("GigaBois",6, 10000);
+    gigabois.insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
+    instance->addEntrepriseMatierePremiere(gigabois);
+
+    EntrepriseMatierePremiere gigafer("GigaFer",6, 10000);
+    gigafer.insertionNouveauProduit(-2, 200.0f, 5.0f, 100.0f, 30);
+    instance->addEntrepriseMatierePremiere(gigafer);
 }
 
-std::vector<EntrepriseProduitFinis*> *Automate::getEntreprisesProduitFinis()
+void Automate::initialProduit()
 {
-    return &entreprisesProduitFinis;
+    ListeProduit L1;
+
+    std::vector<Produit> vproduitsFini;
+    std::vector<Produit> vmatieresPremiere;
+    std::cout <<'\n' <<  "Matieres Premiere : ";
+    for(int i =1 ; i<= L1.size()/2 ; i++)
+    {
+        Produit p;
+        vproduitsFini.push_back(p);
+
+        std::cout << L1[i] << ": id = " << i << ", ";
+    }
+    std::cout << std::endl;
+    std::cout << "Produits finis : ";
+    for(int i =1 ; i<= L1.size()/2 ; i++)
+    {
+        Produit p;
+        vmatieresPremiere.push_back(p);
+        std::cout << L1[-i] << ": id = " << -i << ", ";
+    }
+    std::cout << '\n' << std::endl;
+
+    std::vector<Produit> *ptrvproduitsFini = &vproduitsFini;
+    std::vector<Produit> *ptrvmatieresPremiere = & vmatieresPremiere;
+}
+std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
+{
+    return entreprisesProduitFinis;
 }
 
 std::vector<EntrepriseMatierePremiere*> Automate::getEntreprisesMatierePremiere()
@@ -79,9 +114,10 @@ void Automate::play(int n_tours)
 {
     for(int i = 0; i < n_tours; i++)
     {
+        std::cout << "[ TOUR " << i + 1 << " ]"<< std::endl;
         for(EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere)
         {
-            //entreprise->creerProduits();
+            entreprise->creerProduits();
         }
         for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
@@ -109,11 +145,17 @@ void Automate::gestionMemoire()
 
 Automate::~Automate()
 {
-    std::cout << "Suppression du vecteur entrepriseProduitFinis"<<std::endl;
-    while(!entreprisesProduitFinis.empty()) {
-        delete entreprisesProduitFinis.back();
-        entreprisesProduitFinis.pop_back();
+    for (EntrepriseProduitFinis* entreprise : entreprisesProduitFinis) {
+        delete entreprise;
     }
+    for (EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere) {
+        delete entreprise;
+    }
+    for (Client* client : clients) {
+        delete client;
+    }
+
+    delete(instance);
 }
 
 Automate* Automate::instance = NULL;
