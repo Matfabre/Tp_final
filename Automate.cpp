@@ -88,6 +88,7 @@ void Automate::play(int n_tours)
         }
         for(Client* client : clients)
         {
+            client->gagneSalaire();
             client->shop();
         }
         //CompteRendu::afficheCR(entreprises, i);

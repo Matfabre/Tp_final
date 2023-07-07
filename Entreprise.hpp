@@ -8,7 +8,7 @@
 #include "produit.hpp"
 class Entreprise
 {
-private:
+protected:
     std::string nomEntreprise;
     int idEntreprise;
     float capital;
@@ -26,6 +26,7 @@ public:
     virtual void creerProduits( int id, float prix, float couts, float qualite, Produit *produit);
     void vendreProduits(int id, float prixVente);
     void afficherEtat();
+    virtual void creerProduits();
 
 };
 #endif
@@ -49,9 +50,11 @@ public:
 class EntrepriseMatierePremiere : public Entreprise
 {
 private:
+    int quantiteProduite;
 public:
     EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise);
     ~EntrepriseMatierePremiere();
+    virtual void creerProduits();
 
 };
 #endif
