@@ -20,7 +20,7 @@ void testentreprise()
     Ikea.creerProduits(8,6,2,4, ptrProduit);
 
     Market::getInstance()->ajouterProduitFini(&p1);
-    Ikea.acheterProduits(0);
+    Ikea.acheterProduits(1);
     Ikea.afficherEtat();
     Ikea.vendreProduits(1, 20);
     Ikea.afficherEtat();
@@ -43,13 +43,14 @@ void testmarket()
 
 int main()
 {
-    testmarket();
-    testentreprise();
+    //testmarket();
+    //testentreprise();
 
     Automate* m = Automate::getInstance();
 
     m->initialClient(N_PRODUITS_FINIS);
     m->initialEntreprise();
+    m->initialProduit();
 
     m->play(N_TOURS);
 

@@ -65,6 +65,34 @@ void Automate::initialEntreprise()
     instance->addEntreprise(MonJardin);
 }
 
+void Automate::initialProduit()
+{
+    ListeProduit L1;
+
+    std::vector<Produit> vproduitsFini;
+    std::vector<Produit> vmatieresPremiere;
+    std::cout <<'\n' <<  "Matieres Premiere : ";
+    for(int i =1 ; i<= L1.size()/2 ; i++)
+    {
+        Produit p;
+        vproduitsFini.push_back(p);
+
+        std::cout << L1[i] << ": id = " << i << ", ";
+    }
+    std::cout << std::endl;
+    std::cout << "Produits finis : ";
+    for(int i =1 ; i<= L1.size()/2 ; i++)
+    {
+        Produit p;
+        vmatieresPremiere.push_back(p);
+        std::cout << L1[-i] << ": id = " << -i << ", ";
+    }
+    std::cout << '\n' << std::endl;
+
+    std::vector<Produit> *ptrvproduitsFini = &vproduitsFini;
+    std::vector<Produit> *ptrvmatieresPremiere = & vmatieresPremiere;
+}
+
 std::vector<Entreprise*> Automate::getEntreprises()
 {
     return entreprises;
