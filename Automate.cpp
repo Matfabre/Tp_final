@@ -1,4 +1,5 @@
 #include "Automate.hpp"
+#include "Entreprise.hpp"
 #include <Time.h>
 #include <vector>
 #include <random>
@@ -7,9 +8,14 @@ Automate::Automate()
 {
 }
 
-void Automate::addEntreprise(Entreprise& entreprise)
+void Automate::addEntrepriseProduitFinis(EntrepriseProduitFinis& entreprise)
 {
-    entreprises.push_back(&entreprise);
+    entreprisesProduitFinis.push_back(&entreprise);
+}
+
+void Automate::addEntrepriseMatierePremiere(EntrepriseMatierePremiere& entreprise)
+{
+    entreprisesMatierePremiere.push_back(&entreprise);
 }
 
 void Automate::addClient(Client& client)
@@ -58,31 +64,36 @@ void Automate::initialEntreprise()
     EntrepriseProduitFinis CuisineOutil("CuisineOutil",4, 10000);
     EntrepriseProduitFinis MonJardin("MonJardin",5, 10000);
 
-    instance->addEntreprise(SuperMeuble);
-    instance->addEntreprise(MeubleHyper);
-    instance->addEntreprise(DecoMaison);
-    instance->addEntreprise(CuisineOutil);
-    instance->addEntreprise(MonJardin);
+    instance->addEntrepriseProduitFinis(SuperMeuble);
+    instance->addEntrepriseProduitFinis(MeubleHyper);
+    instance->addEntrepriseProduitFinis(DecoMaison);
+    instance->addEntrepriseProduitFinis(CuisineOutil);
+    instance->addEntrepriseProduitFinis(MonJardin);
 }
 
-std::vector<Entreprise*> Automate::getEntreprises()
+std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
 {
-    return entreprises;
+    return entreprisesProduitFinis;
+}
+
+std::vector<EntrepriseMatierePremiere*> Automate::getEntreprisesMatierePremiere()
+{
+    return entreprisesMatierePremiere;
 }
 
 void Automate::play(int n_tours)
 {
     for(int i = 0; i < n_tours; i++)
     {
-        for(Entreprise* entreprise : entreprises)
+        for(EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere)
         {
             //entreprise->creerProduits();
         }
-        for(Entreprise* entreprise : entreprises)
+        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
             //entreprise->shop();
         }
-        for(Entreprise* entreprise : entreprises)
+        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
             //entreprise->vendreProduits();
         }
