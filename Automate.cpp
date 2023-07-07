@@ -134,6 +134,9 @@ Automate::~Automate()
     for (EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere) {
         delete entreprise;
     }
+    for (Client* client : clients) {
+        delete client;
+    }
 
     delete(instance);
 }
