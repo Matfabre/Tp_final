@@ -112,27 +112,20 @@ EntrepriseMatierePremiere::~EntrepriseMatierePremiere(){}
 
 void EntrepriseMatierePremiere::creerProduits()
 {
-    if(reserveProduits.size() != 0)
-    {
-        reserveProduits[0].quantite += quantiteProduite;
-        reserveProduits[0].qualite = qualiteProduits[0];
-        reserveProduits[0].prix = prixProduits[0];
-    }
-    else
-    {
-        Produit produit;
-        produit.idEntreprise = idEntreprise;
-        produit.idProduit = idProduits[0];
-        produit.qualite = qualiteProduits[0];
-        produit.prix = prixProduits[0];
-        produit.quantite = quantiteProduite;
 
-        Market::getInstance()->ajouterMatierePremiere(&produit);
-    }
+    Produit produit;
+    produit.idEntreprise = idEntreprise;
+    produit.idProduit = idProduits[0];
+    produit.qualite = qualiteProduits[0];
+    produit.prix = prixProduits[0];
+    produit.quantite = quantiteProduite;
 
-
-
+    Market::getInstance()->ajouterMatierePremiere(&produit);
 }
+
+
+
+
 void EntrepriseMatierePremiere::insertionNouveauProduit(int _id, float _prix, float _qualite,  float _couts, int _quantiteProduite)
 {
     prixProduits.push_back(_prix);
