@@ -42,7 +42,7 @@ void Automate::initialClient(const int& N_PRODUITS_FINIS)
     std::uniform_int_distribution<> dist(1, N_PRODUITS_FINIS + 1);
 
     // Creation de 100 clients
-    for(int i = 0; i<100; i++)
+    for(int i = 0; i<10; i++)
     {
         // salaire est un nombre au hasard entre 0 et 3000
         float salaire = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/3000));

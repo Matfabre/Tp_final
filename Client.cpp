@@ -84,6 +84,7 @@ void Client::shop(int produitRechercheId)
     if(produitsCorrespondants.size() == 1)
     {
         market->transaction(produitsCorrespondants[0], 1);
+
         argent -= produitsCorrespondants[0]->prix;
     }
     else
