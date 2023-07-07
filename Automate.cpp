@@ -84,7 +84,7 @@ void Automate::initialEntreprise()
     gigabois->insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
     instance->addEntrepriseMatierePremiere(gigabois);
 
-    EntrepriseMatierePremiere* gigafer = new EntrepriseMatierePremiere("GigaFer",6, 10000);
+    EntrepriseMatierePremiere* gigafer = new EntrepriseMatierePremiere("GigaFer",7, 10000);
     gigafer->insertionNouveauProduit(-2, 200.0f, 5.0f, 100.0f, 30);
     instance->addEntrepriseMatierePremiere(gigafer);
 

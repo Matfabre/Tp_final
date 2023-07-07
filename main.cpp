@@ -21,6 +21,9 @@ int main()
     m->initialEntreprise();
     m->initialProduit();
 
+    CompteRendu compterendu;
+    compterendu.afficheCR(m);
+
     m->play(N_TOURS);
 
     m->gestionMemoire();
