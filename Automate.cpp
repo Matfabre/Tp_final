@@ -81,7 +81,7 @@ void Automate::initialEntreprise()
 
 
 }
-std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
+
 void Automate::initialProduit()
 {
     ListeProduit L1;
@@ -109,7 +109,6 @@ void Automate::initialProduit()
     std::vector<Produit> *ptrvproduitsFini = &vproduitsFini;
     std::vector<Produit> *ptrvmatieresPremiere = & vmatieresPremiere;
 }
-
 std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
 {
     return entreprisesProduitFinis;
