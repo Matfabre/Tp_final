@@ -18,7 +18,15 @@ Market *Market::getInstance()
 // methode pour ajouter un produit
 void Market::ajouterProduitFini(Produit* produit)
 {
-    produitsFinis.push_back(produit);
+    for(int i = 0; i < produitsFinis.size(); i++)
+    {
+        if(produit->idProduit == produitsFinis[i]->idProduit && produit->idEntreprise == produitsFinis[i]->idEntreprise)
+        {
+            produitsFinis[i]->quantite += produit->quantite;
+            return;
+        }
+    }
+    matieresPremieres.push_back(produit);
 }
 
 void Market::ajouterMatierePremiere(Produit* produit)
