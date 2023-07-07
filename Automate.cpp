@@ -1,4 +1,5 @@
 #include "Automate.hpp"
+#include "Entreprise.hpp"
 #include <Time.h>
 #include <vector>
 #include <random>
@@ -7,9 +8,14 @@ Automate::Automate()
 {
 }
 
-void Automate::addEntreprise(Entreprise& entreprise)
+void Automate::addEntrepriseProduitFinis(EntrepriseProduitFinis& entreprise)
 {
-    entreprises.push_back(&entreprise);
+    entreprisesProduitFinis.push_back(&entreprise);
+}
+
+void Automate::addEntrepriseMatierePremiere(EntrepriseMatierePremiere& entreprise)
+{
+    entreprisesMatierePremiere.push_back(&entreprise);
 }
 
 void Automate::addClient(Client& client)
@@ -58,13 +64,24 @@ void Automate::initialEntreprise()
     EntrepriseProduitFinis CuisineOutil("CuisineOutil",4, 10000);
     EntrepriseProduitFinis MonJardin("MonJardin",5, 10000);
 
-    instance->addEntreprise(SuperMeuble);
-    instance->addEntreprise(MeubleHyper);
-    instance->addEntreprise(DecoMaison);
-    instance->addEntreprise(CuisineOutil);
-    instance->addEntreprise(MonJardin);
-}
+    instance->addEntrepriseProduitFinis(SuperMeuble);
+    instance->addEntrepriseProduitFinis(MeubleHyper);
+    instance->addEntrepriseProduitFinis(DecoMaison);
+    instance->addEntrepriseProduitFinis(CuisineOutil);
+    instance->addEntrepriseProduitFinis(MonJardin);
 
+
+    EntrepriseMatierePremiere gigabois("GigaBois",6, 10000);
+    gigabois.insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
+    instance->addEntrepriseMatierePremiere(gigabois);
+
+    EntrepriseMatierePremiere gigafer("GigaFer",6, 10000);
+    gigafer.insertionNouveauProduit(-2, 200.0f, 5.0f, 100.0f, 30);
+    instance->addEntrepriseMatierePremiere(gigafer);
+
+
+}
+std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
 void Automate::initialProduit()
 {
     ListeProduit L1;
@@ -93,32 +110,39 @@ void Automate::initialProduit()
     std::vector<Produit> *ptrvmatieresPremiere = & vmatieresPremiere;
 }
 
-std::vector<Entreprise*> Automate::getEntreprises()
+std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
 {
-    return entreprises;
+    return entreprisesProduitFinis;
+}
+
+std::vector<EntrepriseMatierePremiere*> Automate::getEntreprisesMatierePremiere()
+{
+    return entreprisesMatierePremiere;
 }
 
 void Automate::play(int n_tours)
 {
     for(int i = 0; i < n_tours; i++)
     {
-        for(Entreprise* entreprise : entreprises)
+        std::cout << "[ TOUR " << i + 1 << " ]"<< std::endl;
+        for(EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere)
         {
-            //entreprise->creerProduits();
+            entreprise->creerProduits();
         }
-        for(Entreprise* entreprise : entreprises)
+
+        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
             //entreprise->shop();
         }
-        for(Entreprise* entreprise : entreprises)
+        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
             //entreprise->vendreProduits();
         }
         for(Client* client : clients)
         {
-            client->gagneSalaire();
-            int produitRechercheId = (rand() % 3) + 1;
-            client->shop(produitRechercheId);
+            //->gagneSalaire();
+            //int produitRechercheId = (rand() % 3) + 1;
+            //client->shop(produitRechercheId);
         }
         //CompteRendu::afficheCR(entreprises, i);
     }
