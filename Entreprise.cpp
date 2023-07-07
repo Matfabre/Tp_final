@@ -35,7 +35,7 @@ Entreprise::~Entreprise(){}
 //    qualiteProduits.push_back(qualite);
 //    reserveProduits.push_back(*produit);
 
-    //cr�ation du produit � vendre
+    //création du produit à vendre
 //    produit->idEntreprise = idEntreprise;
 //    produit->idProduit = id;
 //    produit->qualite = qualite;
@@ -118,8 +118,8 @@ EntrepriseMatierePremiere::EntrepriseMatierePremiere(std::string _nomEntreprise,
 
 }
 EntrepriseMatierePremiere::~EntrepriseMatierePremiere(){}
-
-void EntrepriseMatierePremiere::creerProduits()
+//author : Pierre-Antoine
+void EntrepriseMatierePremiere::creerProduits()  //créer et met sur les marchés les produits de l'entreprise
 {
 
     Produit* produit = new Produit();
@@ -134,7 +134,7 @@ void EntrepriseMatierePremiere::creerProduits()
 
 
 
-
+//insertion du type de produit créer par l'entreprise
 void EntrepriseMatierePremiere::insertionNouveauProduit(int _id, float _prix, float _qualite,  float _couts, int _quantiteProduite)
 {
     prixProduits.push_back(_prix);
