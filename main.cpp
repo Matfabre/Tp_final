@@ -5,7 +5,7 @@
 #include "Entreprise.hpp"
 #include "Automate.hpp"
 
-int N_TOURS = 100;
+int N_TOURS = 10;
 int N_PRODUITS_FINIS = 3;
 int N_MATIERES_PREMIERES = 3;
 

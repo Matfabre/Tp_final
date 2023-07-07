@@ -69,7 +69,7 @@ void Client::shop(int produitRechercheId)
 {
     Market* market = Market::getInstance();
     std::vector<Produit*> produitsCorrespondants;
-
+    //std::cout << market->getProduitsFinis().size() << std::endl;
     for(Produit* produit : market->getProduitsFinis())
     {
         if(produit->idProduit == produitRechercheId && produit->quantite != 0)

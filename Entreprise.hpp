@@ -25,9 +25,11 @@ public:
     int getIdEntreprise();
     void recois(float montant);
     void acheterProduits(int achatProduitId);
-    virtual void creerProduits( int id, float prix, float couts, float qualite, Produit *produit);
+    virtual void creerProduits( int id, float prix, float couts, float qualite);
     void vendreProduits(int id, float prixVente);
     void afficherEtat();
+
+
 
 };
 #endif
@@ -42,8 +44,8 @@ private:
 public:
     EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise, float _capital);
     ~EntrepriseProduitFinis();
-
-    virtual void creerProduits( int id, float prix, float couts, float qualite, Produit *produit);
+    void creerProduits();
+    virtual void creerProduits( int id, float prix, float couts, float qualite);
     void afficherEtat();
 
 };

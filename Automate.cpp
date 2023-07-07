@@ -29,10 +29,7 @@ Automate* Automate::getInstance()
     {
         instance = new Automate();
     }
-    else
-    {
-        std::cout << "Deja initialise !" << std::endl;
-    }
+
     return instance;
 }
 
@@ -58,12 +55,27 @@ void Automate::initialClient(const int& N_PRODUITS_FINIS)
 
 void Automate::initialEntreprise()
 {
-    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("SuperMeuble",1, 10000));
-    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("MeubleHyper",2, 10000));
-    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("DecoMaison",3, 10000));
-    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("CuisineOutil",4, 10000));
-    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("MonJardin",5, 10000));
 
+    EntrepriseProduitFinis* superMeuble = new EntrepriseProduitFinis("SuperMeuble",1, 10000);
+    superMeuble->creerProduits(1, 1000.0f, 500.0f, 4.0f);
+    instance->addEntrepriseProduitFinis(superMeuble);
+
+
+    EntrepriseProduitFinis* meubleHyper = new EntrepriseProduitFinis("MeubleHyper",1, 10000);
+    meubleHyper->creerProduits(1, 1000.0f, 500.0f, 4.0f);
+    instance->addEntrepriseProduitFinis(meubleHyper);
+
+    EntrepriseProduitFinis* cuisineOutil = new EntrepriseProduitFinis("CuisineOutil",1, 10000);
+    cuisineOutil->creerProduits(2, 1000.0f, 500.0f, 4.0f);
+    instance->addEntrepriseProduitFinis(cuisineOutil);
+
+    EntrepriseProduitFinis* decoMaison = new EntrepriseProduitFinis("DecoMaison",1, 10000);
+    decoMaison->creerProduits(2, 1000.0f, 500.0f, 4.0f);
+    instance->addEntrepriseProduitFinis(decoMaison);
+
+    EntrepriseProduitFinis* monJardin = new EntrepriseProduitFinis("MonJardin",1, 10000);
+    monJardin->creerProduits(3, 1000.0f, 500.0f, 4.0f);
+    instance->addEntrepriseProduitFinis(monJardin);
 
     EntrepriseMatierePremiere* gigabois = new EntrepriseMatierePremiere("GigaBois",6, 10000);
     gigabois->insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
@@ -129,7 +141,7 @@ void Automate::play(int n_tours)
         }
         for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
-            //entreprise->vendreProduits();
+            entreprise->creerProduits();
         }
         for(Client* client : clients)
         {
@@ -137,7 +149,7 @@ void Automate::play(int n_tours)
             int produitRechercheId = (rand() % 3) + 1;
             client->shop(produitRechercheId);
         }
-        //CompteRendu::afficheCR(entreprises, i);
+        CompteRendu::afficheCR(this);
     }
 
 }
