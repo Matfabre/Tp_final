@@ -4,6 +4,7 @@ class ListeProduit
 {
 public:
     std::string operator[](int id) const;
+    int size();
     ~ListeProduit();
 
 private:
