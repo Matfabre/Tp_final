@@ -75,8 +75,14 @@ Entreprise::~Entreprise(){}
 }
 void Entreprise::afficherEtat()
 {
-
-
+    std::cout << "Entreprise: " << nomEntreprise << " id: " << idEntreprise;
+    std::cout << " Capital : " << capital << std::endl;
+    for (int i =0 ; i< (int) idProduits.size() ; i++)
+    {
+        std::cout << "idProduits : " << idProduits.at(i);
+        std::cout << " cout produit : " << coutsProduits.at(i);
+        std::cout << " qualite produit : " << qualiteProduits.at(i) << std::endl;
+    }
 }
 EntrepriseProduitFinis::EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise, float _capital) : Entreprise(_nomEntreprise,_idEntreprise, _capital)
 {
