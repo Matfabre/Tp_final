@@ -102,14 +102,14 @@ void EntrepriseProduitFinis::afficherEtat()
 void EntrepriseProduitFinis::creerProduits()
 {
 
-    Produit produit;
-    produit.idEntreprise = idEntreprise;
-    produit.idProduit = idProduits[0];
-    produit.qualite = qualiteProduits[0];
-    produit.prix = prixProduits[0];
-    produit.quantite = 30;
+    Produit* produit = new Produit();
+    produit->idEntreprise = idEntreprise;
+    produit->idProduit = idProduits[0];
+    produit->qualite = qualiteProduits[0];
+    produit->prix = prixProduits[0];
+    produit->quantite = 30;
 
-    Market::getInstance()->ajouterProduitFini(&produit);
+    Market::getInstance()->ajouterProduitFini(produit);
 }
 
 
@@ -122,14 +122,14 @@ EntrepriseMatierePremiere::~EntrepriseMatierePremiere(){}
 void EntrepriseMatierePremiere::creerProduits()
 {
 
-    Produit produit;
-    produit.idEntreprise = idEntreprise;
-    produit.idProduit = idProduits[0];
-    produit.qualite = qualiteProduits[0];
-    produit.prix = prixProduits[0];
-    produit.quantite = quantiteProduite;
+    Produit* produit = new Produit();
+    produit->idEntreprise = idEntreprise;
+    produit->idProduit = idProduits[0];
+    produit->qualite = qualiteProduits[0];
+    produit->prix = prixProduits[0];
+    produit->quantite = quantiteProduite;
 
-    Market::getInstance()->ajouterMatierePremiere(&produit);
+    Market::getInstance()->ajouterMatierePremiere(produit);
 }
 
 

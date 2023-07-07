@@ -29,10 +29,7 @@ Automate* Automate::getInstance()
     {
         instance = new Automate();
     }
-    else
-    {
-        std::cout << "Deja initialise !" << std::endl;
-    }
+
     return instance;
 }
 
@@ -69,15 +66,15 @@ void Automate::initialEntreprise()
     instance->addEntrepriseProduitFinis(meubleHyper);
 
     EntrepriseProduitFinis* cuisineOutil = new EntrepriseProduitFinis("CuisineOutil",1, 10000);
-    cuisineOutil->creerProduits(1, 1000.0f, 500.0f, 4.0f);
+    cuisineOutil->creerProduits(2, 1000.0f, 500.0f, 4.0f);
     instance->addEntrepriseProduitFinis(cuisineOutil);
 
     EntrepriseProduitFinis* decoMaison = new EntrepriseProduitFinis("DecoMaison",1, 10000);
-    decoMaison->creerProduits(1, 1000.0f, 500.0f, 4.0f);
+    decoMaison->creerProduits(2, 1000.0f, 500.0f, 4.0f);
     instance->addEntrepriseProduitFinis(decoMaison);
 
     EntrepriseProduitFinis* monJardin = new EntrepriseProduitFinis("MonJardin",1, 10000);
-    monJardin->creerProduits(1, 1000.0f, 500.0f, 4.0f);
+    monJardin->creerProduits(3, 1000.0f, 500.0f, 4.0f);
     instance->addEntrepriseProduitFinis(monJardin);
 
     EntrepriseMatierePremiere* gigabois = new EntrepriseMatierePremiere("GigaBois",6, 10000);
@@ -148,11 +145,11 @@ void Automate::play(int n_tours)
         }
         for(Client* client : clients)
         {
-            //client->gagneSalaire();
-            //int produitRechercheId = (rand() % 3) + 1;
-            //client->shop(produitRechercheId);
+            client->gagneSalaire();
+            int produitRechercheId = (rand() % 3) + 1;
+            client->shop(produitRechercheId);
         }
-        //CompteRendu::afficheCR(entreprises, i);
+        CompteRendu::afficheCR(this);
     }
 
 }

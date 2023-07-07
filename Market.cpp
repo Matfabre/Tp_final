@@ -23,19 +23,23 @@ void Market::ajouterProduitFini(Produit* produit)
         if(produit->idProduit == produitsFinis[i]->idProduit && produit->idEntreprise == produitsFinis[i]->idEntreprise)
         {
             produitsFinis[i]->quantite += produit->quantite;
+            delete produit;
             return;
         }
     }
-    matieresPremieres.push_back(produit);
+    produitsFinis.push_back(produit);
 }
 
 void Market::ajouterMatierePremiere(Produit* produit)
 {
+    std::cout << matieresPremieres.size()<<std::endl;
     for(int i = 0; i < matieresPremieres.size(); i++)
     {
-        if(produit->idProduit == matieresPremieres[i]->idProduit && produit->idEntreprise == matieresPremieres[i]->idEntreprise)
+        if((produit->idProduit == matieresPremieres[i]->idProduit) && (produit->idEntreprise == matieresPremieres[i]->idEntreprise))
         {
             matieresPremieres[i]->quantite += produit->quantite;
+                std::cout << &(produit->idProduit) << " "<< &(matieresPremieres[i]->idProduit)<< std::endl;
+            delete produit;
             return;
         }
     }
