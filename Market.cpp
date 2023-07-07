@@ -38,14 +38,19 @@ void Market::ajouterMatierePremiere(Produit* produit)
 // Destucteur de Market
 Market::~Market()
 {
-    nombreInstances --;
-    std::cout << "destructeur de Market" << std::endl;
+    for (Produit* produit : produitsFinis) {
+        delete produit;
+    }
+    for (Produit* produit : matieresPremieres) {
+        delete produit;
+    }
+
+    delete(instance);
 }
 
 // Constructeur de Market
 Market::Market()
 {
-    std::cout << "constructeur de Market" << std::endl;
 }
 
 std::vector<Produit*> Market::getProduitsFinis()

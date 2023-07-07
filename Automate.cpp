@@ -128,7 +128,14 @@ void Automate::gestionMemoire()
 
 Automate::~Automate()
 {
+    for (EntrepriseProduitFinis* entreprise : entreprisesProduitFinis) {
+        delete entreprise;
+    }
+    for (EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere) {
+        delete entreprise;
+    }
 
+    delete(instance);
 }
 
 Automate* Automate::instance = NULL;
