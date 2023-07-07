@@ -17,9 +17,10 @@ public:
     void shop(int _produitRechercheId);
     void shop();
     ~Client();
+    void gagneSalaire();
 
 private:
-    void gagneSalaire();
+
     Produit* selectProduit(std::vector<Produit*> produits);
 };
 

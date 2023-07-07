@@ -9,7 +9,7 @@
 #include "Client.hpp"
 class Entreprise : public Client
 {
-private:
+protected:
     std::string nomEntreprise;
     int idEntreprise;
     float capital;
@@ -51,9 +51,11 @@ public:
 class EntrepriseMatierePremiere : public Entreprise
 {
 private:
+    int quantiteProduite;
 public:
     EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise, float _capital);
     ~EntrepriseMatierePremiere();
+    virtual void creerProduits();
 
 };
 #endif

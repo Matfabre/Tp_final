@@ -88,6 +88,7 @@ void Automate::play(int n_tours)
         }
         for(Client* client : clients)
         {
+            client->gagneSalaire();
             int produitRechercheId = (rand() % 3) + 1;
             client->shop(produitRechercheId);
         }

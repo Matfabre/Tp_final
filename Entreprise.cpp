@@ -101,5 +101,29 @@ void EntrepriseProduitFinis::afficherEtat()
 
 EntrepriseMatierePremiere::EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise, float _capital) : Entreprise(_nomEntreprise,_idEntreprise, _capital)
 {
+
 }
 EntrepriseMatierePremiere::~EntrepriseMatierePremiere(){}
+
+void EntrepriseMatierePremiere::creerProduits()
+{
+    if(reserveProduits.size() != 0)
+    {
+        reserveProduits[0].quantite = quantiteProduite;
+        reserveProduits[0].qualite = qualiteProduits[0];
+        reserveProduits[0].prix = prixProduits[0];
+    }
+    else
+    {
+        Produit* produit;
+
+        produit->idEntreprise = idEntreprise;
+        produit->idProduit = idProduits[0];
+        produit->qualite = qualiteProduits[0];
+        produit->prix = prixProduits[0];
+        produit->quantite = quantiteProduite;
+
+        reserveProduits.push_back(*produit);
+    }
+
+}
