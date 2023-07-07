@@ -19,8 +19,12 @@ Client::Client(float _salaire, float _argent, int _produitRechercheId)
     salaire = _salaire;
     argent = _argent;
     produitRechercheId = _produitRechercheId;
-}
 
+}
+Client::Client(float _argent)
+{
+    argent = _argent;
+}
 Produit* Client::selectProduit(std::vector<Produit*> produits)
 {
     float bestVA = 0;
@@ -61,7 +65,7 @@ Produit* Client::selectProduit(std::vector<Produit*> produits)
 }
 
 
-void Client::shop()
+void Client::shop(int produitRechercheId)
 {
     Market* market = Market::getInstance();
     std::vector<Produit*> produitsCorrespondants;
