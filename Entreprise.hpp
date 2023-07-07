@@ -7,7 +7,7 @@
 #include <string>
 #include "produit.hpp"
 #include "Client.hpp"
-class Entreprise : public Client
+class Entreprise
 {
 protected:
     std::string nomEntreprise;

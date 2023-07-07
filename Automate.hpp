@@ -22,8 +22,8 @@ public:
     void initialClient(const int& N_PRODUITS_FINIS);
     void initialEntreprise();
     void initialProduit();
-    void addEntrepriseProduitFinis(EntrepriseProduitFinis& entreprise);
-    void addEntrepriseMatierePremiere(EntrepriseMatierePremiere& entreprise);
+    void addEntrepriseProduitFinis(EntrepriseProduitFinis* entreprise);
+    void addEntrepriseMatierePremiere(EntrepriseMatierePremiere* entreprise);
     void addClient(Client& client);
     void gestionMemoire();
     void play(int n_tours);

@@ -10,12 +10,12 @@ public:
 private:
     std::unordered_map<int, std::string> produits =
     {
-        {1, "Planche"},
-        {2, "Ferraille"},
-        {3, "Pierre"},
-        {-1, "Table"},
-        {-2, "Voiture"},
-        {-3, "Piscine"}
+        {-1, "Planche"},
+        {-2, "Ferraille"},
+        {-3, "Pierre"},
+        {1, "Table"},
+        {2, "Voiture"},
+        {3, "Piscine"}
     };
 };
 

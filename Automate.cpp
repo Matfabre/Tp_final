@@ -8,14 +8,14 @@ Automate::Automate()
 {
 }
 
-void Automate::addEntrepriseProduitFinis(EntrepriseProduitFinis& entreprise)
+void Automate::addEntrepriseProduitFinis(EntrepriseProduitFinis* entreprise)
 {
-    entreprisesProduitFinis.push_back(&entreprise);
+    entreprisesProduitFinis.push_back(entreprise);
 }
 
-void Automate::addEntrepriseMatierePremiere(EntrepriseMatierePremiere& entreprise)
+void Automate::addEntrepriseMatierePremiere(EntrepriseMatierePremiere* entreprise)
 {
-    entreprisesMatierePremiere.push_back(&entreprise);
+    entreprisesMatierePremiere.push_back(entreprise);
 }
 
 void Automate::addClient(Client& client)
@@ -58,25 +58,19 @@ void Automate::initialClient(const int& N_PRODUITS_FINIS)
 
 void Automate::initialEntreprise()
 {
-    EntrepriseProduitFinis SuperMeuble("SuperMeuble",1, 10000);
-    EntrepriseProduitFinis MeubleHyper("MeubleHyper",2, 10000);
-    EntrepriseProduitFinis DecoMaison("DecoMaison",3, 10000);
-    EntrepriseProduitFinis CuisineOutil("CuisineOutil",4, 10000);
-    EntrepriseProduitFinis MonJardin("MonJardin",5, 10000);
-
-    instance->addEntrepriseProduitFinis(SuperMeuble);
-    instance->addEntrepriseProduitFinis(MeubleHyper);
-    instance->addEntrepriseProduitFinis(DecoMaison);
-    instance->addEntrepriseProduitFinis(CuisineOutil);
-    instance->addEntrepriseProduitFinis(MonJardin);
+    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("SuperMeuble",1, 10000));
+    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("MeubleHyper",2, 10000));
+    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("DecoMaison",3, 10000));
+    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("CuisineOutil",4, 10000));
+    instance->addEntrepriseProduitFinis(new EntrepriseProduitFinis("MonJardin",5, 10000));
 
 
-    EntrepriseMatierePremiere gigabois("GigaBois",6, 10000);
-    gigabois.insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
+    EntrepriseMatierePremiere* gigabois = new EntrepriseMatierePremiere("GigaBois",6, 10000);
+    gigabois->insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
     instance->addEntrepriseMatierePremiere(gigabois);
 
-    EntrepriseMatierePremiere gigafer("GigaFer",6, 10000);
-    gigafer.insertionNouveauProduit(-2, 200.0f, 5.0f, 100.0f, 30);
+    EntrepriseMatierePremiere* gigafer = new EntrepriseMatierePremiere("GigaFer",6, 10000);
+    gigafer->insertionNouveauProduit(-2, 200.0f, 5.0f, 100.0f, 30);
     instance->addEntrepriseMatierePremiere(gigafer);
 
 
@@ -85,6 +79,7 @@ void Automate::initialEntreprise()
 void Automate::initialProduit()
 {
     ListeProduit L1;
+
 
     std::vector<Produit> vproduitsFini;
     std::vector<Produit> vmatieresPremiere;
@@ -106,8 +101,7 @@ void Automate::initialProduit()
     }
     std::cout << '\n' << std::endl;
 
-    std::vector<Produit> *ptrvproduitsFini = &vproduitsFini;
-    std::vector<Produit> *ptrvmatieresPremiere = & vmatieresPremiere;
+
 }
 std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
 {
@@ -139,9 +133,9 @@ void Automate::play(int n_tours)
         }
         for(Client* client : clients)
         {
-            //->gagneSalaire();
-            //int produitRechercheId = (rand() % 3) + 1;
-            //client->shop(produitRechercheId);
+            client->gagneSalaire();
+            int produitRechercheId = (rand() % 3) + 1;
+            client->shop(produitRechercheId);
         }
         //CompteRendu::afficheCR(entreprises, i);
     }

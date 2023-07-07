@@ -1,7 +1,7 @@
 // Mathias
 #include "Entreprise.hpp"
 #include "Market.hpp"
-Entreprise::Entreprise(std::string _nomEntreprise,int _idEntreprise, float argent) : Client( argent)
+Entreprise::Entreprise(std::string _nomEntreprise,int _idEntreprise, float argent)
 {
     nomEntreprise = _nomEntreprise;
     idEntreprise = _idEntreprise;
@@ -28,7 +28,7 @@ Entreprise::~Entreprise(){}
 
  void Entreprise::acheterProduits(int achatProduitId)
 {
-    Entreprise::shop(achatProduitId);
+    //Entreprise::shop(achatProduitId);
 //    idProduits.push_back(id);
 //    prixProduits.push_back(prix);
 //    coutsProduits.push_back(couts);
