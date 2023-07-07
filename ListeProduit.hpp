@@ -1,3 +1,4 @@
+//author Pierre-Antoine
 #pragma once
 #include <string>
 #include <unordered_map>
@@ -9,7 +10,7 @@ public:
     ~ListeProduit();
 
 private:
-    std::unordered_map<int, std::string> produits =
+    std::unordered_map<int, std::string> produits =  //définition du dictionnaire
     {
         {-1, "Planche"},
         {-2, "Ferraille"},
