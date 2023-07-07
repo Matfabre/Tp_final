@@ -1,3 +1,5 @@
+//authors : Pierre-Antoine
+// Classe gérant l'exécution des tâches
 #include "Automate.hpp"
 #include "Entreprise.hpp"
 #include <Time.h>
@@ -8,22 +10,22 @@ Automate::Automate()
 {
 }
 
-void Automate::addEntrepriseProduitFinis(EntrepriseProduitFinis* entreprise)
+void Automate::addEntrepriseProduitFinis(EntrepriseProduitFinis* entreprise)  //ajoute une entreprise au vecteur attribut
 {
     entreprisesProduitFinis.push_back(entreprise);
 }
 
-void Automate::addEntrepriseMatierePremiere(EntrepriseMatierePremiere* entreprise)
+void Automate::addEntrepriseMatierePremiere(EntrepriseMatierePremiere* entreprise) //ajoute une entreprise au vecteur attribut
 {
     entreprisesMatierePremiere.push_back(entreprise);
 }
 
-void Automate::addClient(Client& client)
+void Automate::addClient(Client& client) //ajoute un client au vecteur attribut
 {
     clients.push_back(&client);
 }
 
-Automate* Automate::getInstance()
+Automate* Automate::getInstance()   //singleton Automate
 {
     if(instance == NULL)
     {
@@ -33,7 +35,7 @@ Automate* Automate::getInstance()
     return instance;
 }
 
-void Automate::initialClient(const int& N_PRODUITS_FINIS)
+void Automate::initialClient(const int& N_PRODUITS_FINIS)  //initialise le vecteur de clients
 {
     srand((unsigned) time(NULL));
 
@@ -53,7 +55,7 @@ void Automate::initialClient(const int& N_PRODUITS_FINIS)
     }
 }
 
-void Automate::initialEntreprise()
+void Automate::initialEntreprise() //initialise les entreprises
 {
 
     EntrepriseProduitFinis* superMeuble = new EntrepriseProduitFinis("SuperMeuble",1, 10000);
@@ -88,7 +90,7 @@ void Automate::initialEntreprise()
 
 }
 
-void Automate::initialProduit()
+void Automate::initialProduit()  //affiche les informations produit au début de l'exécution
 {
     ListeProduit L1;
 
@@ -115,7 +117,7 @@ void Automate::initialProduit()
 
 
 }
-std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
+std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis() 
 {
     return entreprisesProduitFinis;
 }
@@ -125,31 +127,31 @@ std::vector<EntrepriseMatierePremiere*> Automate::getEntreprisesMatierePremiere(
     return entreprisesMatierePremiere;
 }
 
-void Automate::play(int n_tours)
+void Automate::play(int n_tours)  //joue les étapes de tour par tour
 {
     for(int i = 0; i < n_tours; i++)
     {
         std::cout << "[ TOUR " << i + 1 << " ]"<< std::endl;
-        for(EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere)
+        for(EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere)  //les entreprises de matière première crééent leur ressources
         {
             entreprise->creerProduits();
         }
 
-        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
+        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)  //les entreprises produit finis les achètent
         {
             //entreprise->shop();
         }
-        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
+        for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis) //elles construisent et envoie leur produit sur le marché
         {
             entreprise->creerProduits();
         }
-        for(Client* client : clients)
+        for(Client* client : clients)  // les clients achètent ensuite le produit
         {
             client->gagneSalaire();
             int produitRechercheId = (rand() % 3) + 1;
             client->shop(produitRechercheId);
         }
-        CompteRendu::afficheCR(this);
+        CompteRendu::afficheCR(this);  //on affiche les informations de l'étape
     }
 
 }
@@ -159,9 +161,9 @@ void Automate::gestionMemoire()
 
 }
 
-Automate::~Automate()
+Automate::~Automate()  //destructeur
 {
-    for (EntrepriseProduitFinis* entreprise : entreprisesProduitFinis) {
+    for (EntrepriseProduitFinis* entreprise : entreprisesProduitFinis) { //on fait en sorte que toutes les entreprises et client soient détruits
         delete entreprise;
     }
     for (EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere) {
@@ -174,4 +176,4 @@ Automate::~Automate()
     delete(instance);
 }
 
-Automate* Automate::instance = NULL;
+Automate* Automate::instance = NULL;  //initialisation de l'instance à null
