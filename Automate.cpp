@@ -71,9 +71,9 @@ void Automate::initialEntreprise()
     instance->addEntrepriseProduitFinis(MonJardin);
 }
 
-std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
+std::vector<EntrepriseProduitFinis*> *Automate::getEntreprisesProduitFinis()
 {
-    return entreprisesProduitFinis;
+    return &entreprisesProduitFinis;
 }
 
 std::vector<EntrepriseMatierePremiere*> Automate::getEntreprisesMatierePremiere()

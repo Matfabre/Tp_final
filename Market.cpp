@@ -47,7 +47,7 @@ std::vector<Produit*> Market::getMatieresPremieres()
 void Market::transaction(Produit* produit, int quantiteAchete)
 {
     (produit->quantite) -= quantiteAchete;
-    std::vector<EntrepriseProduitFinis*> marchandsProduitsFinis = Automate::getInstance()->getEntreprisesProduitFinis();
+    std::vector<EntrepriseProduitFinis*> marchandsProduitsFinis =*( Automate::getInstance()->getEntreprisesProduitFinis());
     std::vector<EntrepriseMatierePremiere*> marchandsMatierePremiere = Automate::getInstance()->getEntreprisesMatierePremiere();
 
     for(Entreprise* marchand : marchandsProduitsFinis)

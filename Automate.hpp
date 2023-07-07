@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include "Entreprise.hpp"
 #include "Client.hpp"
@@ -25,7 +26,7 @@ public:
     void addClient(Client& client);
     void gestionMemoire();
     void play(int n_tours);
-    std::vector<EntrepriseProduitFinis*> getEntreprisesProduitFinis();
+    std::vector<EntrepriseProduitFinis*> *getEntreprisesProduitFinis();
     std::vector<EntrepriseMatierePremiere*> getEntreprisesMatierePremiere();
     ~Automate();
 };

@@ -51,9 +51,17 @@ int main()
     m->initialClient(N_PRODUITS_FINIS);
     m->initialEntreprise();
 
-    m->play(N_TOURS);
+    //m->play(N_TOURS);
 
-    m->gestionMemoire();
+    //m->gestionMemoire();
 
+//    std::vector<EntrepriseProduitFinis*> vectEntre = m->getEntreprisesProduitFinis();
+//    std::cout << "Taille du vecteur EntrepriseProduitFinis : "<<vectEntre.size()<<std::endl;
+//    for(std::vector<EntrepriseProduitFinis*>::iterator it = vectEntre.begin();it != vectEntre.end(); it++)
+//    {
+//        (*it)->afficherEtat();
+//    }
+    CompteRendu compterendu;
+    compterendu.afficheCR(m);
     return 0;
 }
