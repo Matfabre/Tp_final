@@ -6,9 +6,10 @@
 #include <vector>
 #include <string>
 #include "produit.hpp"
-class Entreprise
+#include "Client.hpp"
+class Entreprise : public Client
 {
-private:
+protected:
     std::string nomEntreprise;
     int idEntreprise;
     float capital;
@@ -19,10 +20,11 @@ private:
     std::vector<Produit> reserveProduits;
 
 public:
-    Entreprise(std::string _nomEntreprise,int _idEntreprise);
+    Entreprise(std::string _nomEntreprise,int _idEntreprise, float argent);
     virtual ~Entreprise();
     int getIdEntreprise();
     void recois(float montant);
+    void acheterProduits(int achatProduitId);
     virtual void creerProduits( int id, float prix, float couts, float qualite, Produit *produit);
     void vendreProduits(int id, float prixVente);
     void afficherEtat();
@@ -38,7 +40,7 @@ class EntrepriseProduitFinis : public Entreprise
 {
 private:
 public:
-    EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise);
+    EntrepriseProduitFinis(std::string _nomEntreprise,int _idEntreprise, float _capital);
     ~EntrepriseProduitFinis();
 
     virtual void creerProduits( int id, float prix, float couts, float qualite, Produit *produit);
@@ -49,9 +51,11 @@ public:
 class EntrepriseMatierePremiere : public Entreprise
 {
 private:
+    int quantiteProduite;
 public:
-    EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise);
+    EntrepriseMatierePremiere(std::string _nomEntreprise,int _idEntreprise, float _capital);
     ~EntrepriseMatierePremiere();
+    virtual void creerProduits();
 
 };
 #endif
