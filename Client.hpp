@@ -9,11 +9,13 @@ class Client
 private:
     float salaire;
     float argent;
+    int produitRechercheId;
 
 public:
-    Client(float _salaire, float _argent);
+    Client(float _salaire, float _argent, int _produitRechercheId);
     Client(float _argent);
     void shop(int _produitRechercheId);
+    void shop();
     ~Client();
 
 private:
