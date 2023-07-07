@@ -117,7 +117,7 @@ void Automate::initialProduit()  //affiche les informations produit au début de
 
 
 }
-std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis() 
+std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
 {
     return entreprisesProduitFinis;
 }
@@ -158,7 +158,8 @@ void Automate::play(int n_tours)  //joue les étapes de tour par tour
 
 void Automate::gestionMemoire()
 {
-
+    delete(Market::getInstance()); //appel le destructeur de market sur son singleton
+    delete(instance);  //appel le destructeur d'automate sur l'instance
 }
 
 Automate::~Automate()  //destructeur
@@ -173,7 +174,6 @@ Automate::~Automate()  //destructeur
         delete client;
     }
 
-    delete(instance);
 }
 
 Automate* Automate::instance = NULL;  //initialisation de l'instance à null
