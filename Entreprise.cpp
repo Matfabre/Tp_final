@@ -1,6 +1,6 @@
 // Mathias
 #include "Entreprise.hpp"
-
+#include "Market.hpp"
 Entreprise::Entreprise(std::string _nomEntreprise,int _idEntreprise, float argent) : Client( argent)
 {
     nomEntreprise = _nomEntreprise;
@@ -8,6 +8,9 @@ Entreprise::Entreprise(std::string _nomEntreprise,int _idEntreprise, float argen
     capital = argent;
 
 }
+
+
+
 
 int Entreprise::getIdEntreprise()
 {
@@ -18,6 +21,8 @@ void Entreprise::recois(float montant)
 {
     capital += montant;
 }
+
+
 
 Entreprise::~Entreprise(){}
 
@@ -109,21 +114,31 @@ void EntrepriseMatierePremiere::creerProduits()
 {
     if(reserveProduits.size() != 0)
     {
-        reserveProduits[0].quantite = quantiteProduite;
+        reserveProduits[0].quantite += quantiteProduite;
         reserveProduits[0].qualite = qualiteProduits[0];
         reserveProduits[0].prix = prixProduits[0];
     }
     else
     {
-        Produit* produit;
+        Produit produit;
+        produit.idEntreprise = idEntreprise;
+        produit.idProduit = idProduits[0];
+        produit.qualite = qualiteProduits[0];
+        produit.prix = prixProduits[0];
+        produit.quantite = quantiteProduite;
 
-        produit->idEntreprise = idEntreprise;
-        produit->idProduit = idProduits[0];
-        produit->qualite = qualiteProduits[0];
-        produit->prix = prixProduits[0];
-        produit->quantite = quantiteProduite;
-
-        reserveProduits.push_back(*produit);
+        Market::getInstance()->ajouterMatierePremiere(&produit);
     }
 
+
+
+}
+void EntrepriseMatierePremiere::insertionNouveauProduit(int _id, float _prix, float _qualite,  float _couts, int _quantiteProduite)
+{
+    prixProduits.push_back(_prix);
+    coutsProduits.push_back(_couts);
+    qualiteProduits.push_back(_qualite);
+    idProduits.push_back(_id);
+
+    quantiteProduite = _quantiteProduite;
 }

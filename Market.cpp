@@ -21,6 +21,20 @@ void Market::ajouterProduitFini(Produit* produit)
     produitsFinis.push_back(produit);
 }
 
+void Market::ajouterMatierePremiere(Produit* produit)
+{
+    for(int i = 0; i < matieresPremieres.size(); i++)
+    {
+        if(produit->idProduit == matieresPremieres[i]->idProduit && produit->idEntreprise == matieresPremieres[i]->idEntreprise)
+        {
+            matieresPremieres[i]->quantite += produit->quantite;
+            return;
+        }
+    }
+    matieresPremieres.push_back(produit);
+}
+
+
 // Destucteur de Market
 Market::~Market()
 {

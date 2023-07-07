@@ -69,6 +69,17 @@ void Automate::initialEntreprise()
     instance->addEntrepriseProduitFinis(DecoMaison);
     instance->addEntrepriseProduitFinis(CuisineOutil);
     instance->addEntrepriseProduitFinis(MonJardin);
+
+
+    EntrepriseMatierePremiere gigabois("GigaBois",6, 10000);
+    gigabois.insertionNouveauProduit(-1, 50.0f, 5.0f, 20.0f, 100);
+    instance->addEntrepriseMatierePremiere(gigabois);
+
+    EntrepriseMatierePremiere gigafer("GigaFer",6, 10000);
+    gigafer.insertionNouveauProduit(-2, 200.0f, 5.0f, 100.0f, 30);
+    instance->addEntrepriseMatierePremiere(gigafer);
+
+
 }
 
 std::vector<EntrepriseProduitFinis*> Automate::getEntreprisesProduitFinis()
@@ -85,10 +96,12 @@ void Automate::play(int n_tours)
 {
     for(int i = 0; i < n_tours; i++)
     {
+        std::cout << "[ TOUR " << i + 1 << " ]"<< std::endl;
         for(EntrepriseMatierePremiere* entreprise : entreprisesMatierePremiere)
         {
-            //entreprise->creerProduits();
+            entreprise->creerProduits();
         }
+
         for(EntrepriseProduitFinis* entreprise : entreprisesProduitFinis)
         {
             //entreprise->shop();
@@ -99,9 +112,9 @@ void Automate::play(int n_tours)
         }
         for(Client* client : clients)
         {
-            client->gagneSalaire();
-            int produitRechercheId = (rand() % 3) + 1;
-            client->shop(produitRechercheId);
+            //->gagneSalaire();
+            //int produitRechercheId = (rand() % 3) + 1;
+            //client->shop(produitRechercheId);
         }
         //CompteRendu::afficheCR(entreprises, i);
     }
