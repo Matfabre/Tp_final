@@ -47,15 +47,28 @@ std::vector<Produit*> Market::getMatieresPremieres()
 void Market::transaction(Produit* produit, int quantiteAchete)
 {
     (produit->quantite) -= quantiteAchete;
-    std::vector<Entreprise*> marchands = Automate::getInstance()->getEntreprises();
-    for(Entreprise* marchand : marchands)
+    std::vector<EntrepriseProduitFinis*> marchandsProduitsFinis = Automate::getInstance()->getEntreprisesProduitFinis();
+    std::vector<EntrepriseMatierePremiere*> marchandsMatierePremiere = Automate::getInstance()->getEntreprisesMatierePremiere();
+
+    for(Entreprise* marchand : marchandsProduitsFinis)
     {
 
         if(marchand->getIdEntreprise() == produit->idEntreprise)
         {
             marchand->recois(produit->prix * quantiteAchete);
+            break;
         }
     }
+    for(Entreprise* marchand : marchandsMatierePremiere)
+    {
+
+        if(marchand->getIdEntreprise() == produit->idEntreprise)
+        {
+            marchand->recois(produit->prix * quantiteAchete);
+            break;
+        }
+    }
+
 }
 
 int Market::nombreInstances = 0;

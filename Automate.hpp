@@ -8,7 +8,9 @@
 class Automate
 {
 private:
-    std::vector<Entreprise*> entreprises;
+    std::vector<EntrepriseProduitFinis*> entreprisesProduitFinis;
+    std::vector<EntrepriseMatierePremiere*> entreprisesMatierePremiere;
+
     std::vector<Client*> clients;
     Automate();
 protected:
@@ -18,11 +20,13 @@ public:
     static Automate* getInstance();
     void initialClient(const int& N_PRODUITS_FINIS);
     void initialEntreprise();
-    void addEntreprise(Entreprise& entreprise);
+    void addEntrepriseProduitFinis(EntrepriseProduitFinis& entreprise);
+    void addEntrepriseMatierePremiere(EntrepriseMatierePremiere& entreprise);
     void addClient(Client& client);
     void gestionMemoire();
     void play(int n_tours);
-    std::vector<Entreprise*> getEntreprises();
+    std::vector<EntrepriseProduitFinis*> getEntreprisesProduitFinis();
+    std::vector<EntrepriseMatierePremiere*> getEntreprisesMatierePremiere();
     ~Automate();
 };
 
